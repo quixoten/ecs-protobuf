@@ -53,7 +53,7 @@ class ProtobufDefinitionBuilder
   ]
 
   def self.from_cmdline_args(args)
-    if args.length != 1
+    if args.length != 1 || %w[-h --help].include?(args[0])
       abort <<~USAGE.chop
         Usage: #{$0} <tag_name>
 
@@ -66,67 +66,34 @@ class ProtobufDefinitionBuilder
   end
 
   attr_reader :flat_file
-  attr_reader :host
-  attr_reader :port
   attr_reader :tag_name
-  attr_reader :uri
 
   def initialize(tag_name)
     @flat_file = "#{ROOT}/ecs_flat/#{tag_name}.yml"
     @tag_name  = tag_name
-    @uri       = URI.parse("#{URI_PREFIX}/#{tag_name}/#{URI_SUFFIX}")
-    @host      = @uri.host
-    @prot      = @uri.port
   end
 
-  def run!
-    download_flat_file
-    convert_flat_file_to_proto
-  end
-
-  def download_flat_file
+  def download_ecs_flat
+    uri       = URI.parse("#{URI_PREFIX}/#{tag_name}/#{URI_SUFFIX}")
     redirects = 10
 
-    catch(:done) do
-      loop do
-        Net::HTTP.start(uri.host, uri.port, use_ssl: true) do |http|
-          req = Net::HTTP::Get.new(uri)
-          http.request(req) do |res|
-            case res
-            when  Net::HTTPOK
-              File.open(flat_file, "w") do |f|
-                puts "downloading to #{f.path} ..."
-                res.read_body do |chunk|
-                  f.write(chunk)
-                end
-              end
-
-              throw :done
-            when Net::HTTPFound
-              redirects -= 1
-              puts res["location"]
-              uri = URI.parse(res["location"])
-              abort "Too many redirects" if redirects == 0
-            else
-              abort "Failed to list releases at #{uri}: #{res.code} #{res.class}"
-            end
+    loop do
+      Net::HTTP.start(uri.host, uri.port, use_ssl: true) do |http|
+        req = Net::HTTP::Get.new(uri)
+        http.request(req) do |res|
+          case res
+          when  Net::HTTPOK
+            return YAML.load(res.body)
+          when Net::HTTPFound
+            redirects -= 1
+            uri = URI.parse(res["location"])
+            abort "Too many redirects" if redirects == 0
+          else
+            abort "Failed to retrieve flat file from #{uri}: #{res.code} #{res.class}"
           end
         end
       end
     end
-  end
-
-  def convert_flat_file_to_proto
-    ecs_flat        = YAML.load_file(flat_file)
-    new_fields      = sort_fields(build_fields_from(ecs_flat))
-    old_fields      = load_cached_fields
-    combined_fields = sort_fields(
-      merge_new_fields_with_old_fields(new_fields, old_fields)
-    )
-
-    cache_fields(sort_fields(combined_fields))
-
-    write_proto(combined_fields)
   end
 
   def sort_fields(fields)
@@ -141,14 +108,12 @@ class ProtobufDefinitionBuilder
         a_key <=> b_key
       end
     end.inject({}) do |sorted, key|
-      sorted[key] = Marshal.load(Marshal.dump(fields[key]))
+      sorted[key] = fields[key]
       sorted
     end
   end
 
-  def build_fields_from(ecs_flat)
-    ecs_flat = Marshal.load(Marshal.dump(ecs_flat))
-
+  def build_fields_from_ecs_flat(ecs_flat)
     # rename @timestamp to timestamp
     ecs_flat.delete("@timestamp").tap do |timestamp|
       timestamp["flat_name"] = timestamp["name"] = "timestamp"
@@ -165,7 +130,7 @@ class ProtobufDefinitionBuilder
     end
 
     # build a hash of fields with protobuf types
-    ecs_flat.keys.inject({}) do |built_fields, key|
+    built_fields = ecs_flat.keys.inject({}) do |built_fields, key|
       field     = ecs_flat.fetch(key)
       segments  = key.split(".")
       name      = segments.pop()
@@ -207,6 +172,8 @@ class ProtobufDefinitionBuilder
 
       built_fields
     end
+
+    sort_fields(built_fields)
   end
 
   def load_cached_fields
@@ -217,7 +184,7 @@ class ProtobufDefinitionBuilder
     end
   end
 
-  def cache_fields(fields)
+  def write_cache(fields)
     File.open(CACHED_FIELDS, "w") do |f|
       f.write(YAML.dump(fields))
     end
@@ -228,7 +195,6 @@ class ProtobufDefinitionBuilder
   end
 
   def merge_new_fields_with_old_fields(new_fields, old_fields)
-    merged_fields = Marshal.load(Marshal.dump(new_fields))
     new_by_scope  = {}
     old_by_scope  = {}
 
@@ -252,7 +218,6 @@ class ProtobufDefinitionBuilder
       next_tag = scoped_old_fields.size + 1
 
       scoped_new_fields.each_key do |key|
-        merged_field = merged_fields.fetch(key)
         new_field    = new_fields.fetch(key)
         old_field    = old_fields.fetch(key, nil)
 
@@ -269,7 +234,7 @@ class ProtobufDefinitionBuilder
             old_key  = old_field["key"]
             new_name = "deprecated_#{old_field["name"]}_#{old_field["tag"]}"
             new_key  = "#{scope}.#{new_name}"
-            merged_fields[new_key] = Marshal.load(Marshal.dump(old_field)).update(
+            new_fields[new_key] = old_field.update(
               "deprecated" => true,
               "key"        => new_key,
               "name"       => new_name,
@@ -277,14 +242,14 @@ class ProtobufDefinitionBuilder
             )
             tag = next_tag
             next_tag += 1
-            puts "Cannot change #{old_key} from #{old_type} to #{new_type}." + \
+            puts "Cannot change #{old_key} from #{old_type} to #{new_type}. " + \
                  "The #{old_type} version will be renamed to #{new_key}"
           else
             tag = old_field["tag"]
           end
         end
 
-        merged_field["tag"] = tag
+        new_field["tag"] = tag
       end
 
       scoped_old_fields.each_key do |key|
@@ -292,17 +257,16 @@ class ProtobufDefinitionBuilder
         old_field = old_fields.fetch(key)
 
         if new_field.nil?
-          merged_field = Marshal.load(Marshal.dump(old_field))
-          merged_fields[key] = merged_field
-          if !merged_field["deprecated"]
+          new_fields[key] = old_field
+          if !old_field["deprecated"]
             puts("marking #{key} as depreacted")
-            merged_field.update({"deprecated" => true})
+            old_field.update({"deprecated" => true})
           end
         end
       end
     end
 
-    merged_fields
+    sort_fields(new_fields)
   end
 
   def write_proto(fields)
@@ -353,6 +317,16 @@ class ProtobufDefinitionBuilder
     end
 
     f.write("#{spaces}}\n\n")
+  end
+
+  def run!
+    ecs_flat      = download_ecs_flat()
+    new_fields    = build_fields_from_ecs_flat(ecs_flat)
+    old_fields    = load_cached_fields()
+    merged_fields = merge_new_fields_with_old_fields(new_fields, old_fields)
+
+    write_proto(merged_fields)
+    write_cache(merged_fields)
   end
 end
 
