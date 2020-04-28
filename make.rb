@@ -6,10 +6,11 @@ require "set"
 require "yaml"
 
 class ProtobufDefinitionBuilder
-  ROOT = File.expand_path("..", __FILE__)
-  URI_PREFIX = "https://raw.githubusercontent.com/elastic/ecs"
-  URI_SUFFIX = "generated/ecs/ecs_flat.yml"
+  ROOT          = File.expand_path("..", __FILE__)
+  URI_PREFIX    = "https://raw.githubusercontent.com/elastic/ecs"
+  URI_SUFFIX    = "generated/ecs/ecs_flat.yml"
   CACHED_FIELDS = File.join(ROOT, "cached-fields.yml")
+  PROTO_FILE    = File.join(ROOT, "elastic.proto")
 
   FIELD_TYPE_TO_PROTOBUF_TYPE = {
     "binary"       => "string",
@@ -117,48 +118,31 @@ class ProtobufDefinitionBuilder
 
   def convert_flat_file_to_proto
     ecs_flat        = YAML.load_file(flat_file)
-    new_fields      = cascade_fields(build_fields_from(ecs_flat))
+    new_fields      = sort_fields(build_fields_from(ecs_flat))
     old_fields      = load_cached_fields
-    combined_fields = merge_new_fields_with_old_fields(new_fields, old_fields)
-    cache_fields(combined_fields)
+    combined_fields = sort_fields(
+      merge_new_fields_with_old_fields(new_fields, old_fields)
+    )
+
+    cache_fields(sort_fields(combined_fields))
+
+    write_proto(combined_fields)
   end
 
-  # return a new hash of fields sorted by depth, then by key
-  def cascade_fields(fields)
-    sorted_keys = fields.keys.sort do |a_key, b_key|
-      a_segments = a_key.split(".")
-      b_segments = b_key.split(".")
-      a_scope    = fields[a_key]["scope"]
-      b_scope    = fields[a_key]["scope"]
-      index      = 0
-
-      loop do
-        a_segment = a_segments.shift
-        b_segment = b_segments.shift
-
-        if a_segment == b_segment
-          if a_scope == b_key
-            break 1
-          elsif b_scope == a_key
-            break -1
-          end
+  def sort_fields(fields)
+    fields.keys.sort do |a_key, b_key|
+      if fields[a_key]["scope"] == fields[b_key]["scope"]
+        if fields[a_key]["tag"] && fields[b_key]["tag"]
+          fields[a_key]["tag"] <=> fields[b_key]["tag"]
+        else
+          a_key <=> b_key
         end
-
-        if a_segments.empty? || b_segments.empty?
-          break a_segment <=> b_segment
-        elsif a_segments.empty?
-          break -1
-        elsif b_segments.empty?
-          break 1
-        elsif a_segment != b_segment
-          break a_segment <=> b_segment
-        end
-
-        index += 1
+      else
+        a_key <=> b_key
       end
-    end.inject({}) do |cascading_fields, key|
-      cascading_fields[key] = Marshal.load(Marshal.dump(fields[key]))
-      cascading_fields
+    end.inject({}) do |sorted, key|
+      sorted[key] = Marshal.load(Marshal.dump(fields[key]))
+      sorted
     end
   end
 
@@ -274,7 +258,7 @@ class ProtobufDefinitionBuilder
 
         if old_field.nil?
           tag = next_tag
-          next_tag = next_tag + 1
+          next_tag += 1
         else
           new_type = new_field["type"]
           old_type = old_field["type"]
@@ -289,10 +273,10 @@ class ProtobufDefinitionBuilder
               "deprecated" => true,
               "key"        => new_key,
               "name"       => new_name,
-              "tag"        => next_tag,
+              "tag"        => old_field["tag"],
             )
             tag = next_tag
-            next_tag = next_tag + 1
+            next_tag += 1
             puts "Cannot change #{old_key} from #{old_type} to #{new_type}." + \
                  "The #{old_type} version will be renamed to #{new_key}"
           else
@@ -319,6 +303,56 @@ class ProtobufDefinitionBuilder
     end
 
     merged_fields
+  end
+
+  def write_proto(fields)
+    common_schema = {}
+
+    fields.each_key do |key|
+      field  = fields[key]
+      scope  = field["scope"]
+      parent = common_schema
+
+      unless scope == ""
+        scope.split(".").each do |name|
+          parent[name] ||= {}
+          parent = parent[name]
+        end
+      end
+
+      parent["_fields"] ||= []
+      parent["_fields"].append(field)
+    end
+
+    File.open(PROTO_FILE, "w") do |f|
+      f.write("syntax = \"proto3\";\n\n")
+      f.write("package elastic;\n\n")
+      write_proto_message(f, "CommonSchema", common_schema)
+
+    end
+  end
+
+  def write_proto_message(f, message_name, message, indent=0)
+    spaces = " " * indent * 2
+
+    f.write("#{spaces}message #{message_name} {\n")
+
+    message.each do |nested_key, nested_field|
+      next if nested_key == "_fields"
+      nested_name = camelize(nested_key)
+      write_proto_message(f, nested_name, nested_field, indent + 1)
+    end
+
+    message.fetch("_fields", []).each do |field|
+      f_name = field["name"]
+      f_type = field["type"]
+      f_tag  = field["tag"]
+      f_deprecated = " [deprecated=true]" if field["deprecated"]
+
+      f.write("#{spaces}  #{f_type} #{f_name} = #{f_tag}#{f_deprecated};\n")
+    end
+
+    f.write("#{spaces}}\n\n")
   end
 end
 

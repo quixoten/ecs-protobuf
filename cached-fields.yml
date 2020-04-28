@@ -1833,13 +1833,6 @@ host.user.name:
   type: string
   deprecated: false
   tag: 7
-http.request.body:
-  key: http.request.body
-  name: body
-  scope: http.request
-  type: Body
-  deprecated: false
-  tag: 1
 http:
   key: http
   name: http
@@ -1852,6 +1845,13 @@ http.request:
   name: request
   scope: http
   type: Request
+  deprecated: false
+  tag: 1
+http.request.body:
+  key: http.request.body
+  name: body
+  scope: http.request
+  type: Body
   deprecated: false
   tag: 1
 http.request.body.bytes:
@@ -2218,13 +2218,6 @@ network.vlan.name:
   type: string
   deprecated: false
   tag: 2
-observer.egress.interface:
-  key: observer.egress.interface
-  name: interface
-  scope: observer.egress
-  type: Interface
-  deprecated: false
-  tag: 1
 observer:
   key: observer
   name: observer
@@ -2237,6 +2230,13 @@ observer.egress:
   name: egress
   scope: observer
   type: Egress
+  deprecated: false
+  tag: 1
+observer.egress.interface:
+  key: observer.egress.interface
+  name: interface
+  scope: observer.egress
+  type: Interface
   deprecated: false
   tag: 1
 observer.egress.interface.alias:
