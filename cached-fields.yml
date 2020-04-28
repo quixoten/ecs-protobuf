@@ -1,0 +1,4586 @@
+---
+agent:
+  key: agent
+  name: agent
+  scope: ''
+  type: Agent
+  deprecated: false
+  tag: 1
+agent.build:
+  key: agent.build
+  name: build
+  scope: agent
+  type: Build
+  deprecated: false
+  tag: 1
+agent.build.original:
+  key: agent.build.original
+  name: original
+  scope: agent.build
+  type: string
+  deprecated: false
+  tag: 1
+agent.ephemeral_id:
+  key: agent.ephemeral_id
+  name: ephemeral_id
+  scope: agent
+  type: string
+  deprecated: false
+  tag: 2
+agent.id:
+  key: agent.id
+  name: id
+  scope: agent
+  type: string
+  deprecated: false
+  tag: 3
+agent.name:
+  key: agent.name
+  name: name
+  scope: agent
+  type: string
+  deprecated: false
+  tag: 4
+agent.type:
+  key: agent.type
+  name: type
+  scope: agent
+  type: string
+  deprecated: false
+  tag: 5
+agent.version:
+  key: agent.version
+  name: version
+  scope: agent
+  type: string
+  deprecated: false
+  tag: 6
+client:
+  key: client
+  name: client
+  scope: ''
+  type: Client
+  deprecated: false
+  tag: 2
+client.address:
+  key: client.address
+  name: address
+  scope: client
+  type: string
+  deprecated: false
+  tag: 1
+client.as:
+  key: client.as
+  name: as
+  scope: client
+  type: As
+  deprecated: false
+  tag: 2
+client.as.number:
+  key: client.as.number
+  name: number
+  scope: client.as
+  type: int64
+  deprecated: false
+  tag: 1
+client.as.organization:
+  key: client.as.organization
+  name: organization
+  scope: client.as
+  type: Organization
+  deprecated: false
+  tag: 2
+client.as.organization.name:
+  key: client.as.organization.name
+  name: name
+  scope: client.as.organization
+  type: string
+  deprecated: false
+  tag: 1
+client.bytes:
+  key: client.bytes
+  name: bytes
+  scope: client
+  type: int64
+  deprecated: false
+  tag: 3
+client.domain:
+  key: client.domain
+  name: domain
+  scope: client
+  type: string
+  deprecated: false
+  tag: 4
+client.geo:
+  key: client.geo
+  name: geo
+  scope: client
+  type: Geo
+  deprecated: false
+  tag: 5
+client.geo.city_name:
+  key: client.geo.city_name
+  name: city_name
+  scope: client.geo
+  type: string
+  deprecated: false
+  tag: 1
+client.geo.continent_name:
+  key: client.geo.continent_name
+  name: continent_name
+  scope: client.geo
+  type: string
+  deprecated: false
+  tag: 2
+client.geo.country_iso_code:
+  key: client.geo.country_iso_code
+  name: country_iso_code
+  scope: client.geo
+  type: string
+  deprecated: false
+  tag: 3
+client.geo.country_name:
+  key: client.geo.country_name
+  name: country_name
+  scope: client.geo
+  type: string
+  deprecated: false
+  tag: 4
+client.geo.location:
+  key: client.geo.location
+  name: location
+  scope: client.geo
+  type: string
+  deprecated: false
+  tag: 5
+client.geo.name:
+  key: client.geo.name
+  name: name
+  scope: client.geo
+  type: string
+  deprecated: false
+  tag: 6
+client.geo.region_iso_code:
+  key: client.geo.region_iso_code
+  name: region_iso_code
+  scope: client.geo
+  type: string
+  deprecated: false
+  tag: 7
+client.geo.region_name:
+  key: client.geo.region_name
+  name: region_name
+  scope: client.geo
+  type: string
+  deprecated: false
+  tag: 8
+client.ip:
+  key: client.ip
+  name: ip
+  scope: client
+  type: string
+  deprecated: false
+  tag: 6
+client.mac:
+  key: client.mac
+  name: mac
+  scope: client
+  type: string
+  deprecated: false
+  tag: 7
+client.nat:
+  key: client.nat
+  name: nat
+  scope: client
+  type: Nat
+  deprecated: false
+  tag: 8
+client.nat.ip:
+  key: client.nat.ip
+  name: ip
+  scope: client.nat
+  type: string
+  deprecated: false
+  tag: 1
+client.nat.port:
+  key: client.nat.port
+  name: port
+  scope: client.nat
+  type: int64
+  deprecated: false
+  tag: 2
+client.packets:
+  key: client.packets
+  name: packets
+  scope: client
+  type: int64
+  deprecated: false
+  tag: 9
+client.port:
+  key: client.port
+  name: port
+  scope: client
+  type: int64
+  deprecated: false
+  tag: 10
+client.registered_domain:
+  key: client.registered_domain
+  name: registered_domain
+  scope: client
+  type: string
+  deprecated: false
+  tag: 11
+client.top_level_domain:
+  key: client.top_level_domain
+  name: top_level_domain
+  scope: client
+  type: string
+  deprecated: false
+  tag: 12
+client.user:
+  key: client.user
+  name: user
+  scope: client
+  type: User
+  deprecated: false
+  tag: 13
+client.user.domain:
+  key: client.user.domain
+  name: domain
+  scope: client.user
+  type: string
+  deprecated: false
+  tag: 1
+client.user.email:
+  key: client.user.email
+  name: email
+  scope: client.user
+  type: string
+  deprecated: false
+  tag: 2
+client.user.full_name:
+  key: client.user.full_name
+  name: full_name
+  scope: client.user
+  type: string
+  deprecated: false
+  tag: 3
+client.user.group:
+  key: client.user.group
+  name: group
+  scope: client.user
+  type: Group
+  deprecated: false
+  tag: 4
+client.user.group.domain:
+  key: client.user.group.domain
+  name: domain
+  scope: client.user.group
+  type: string
+  deprecated: false
+  tag: 1
+client.user.group.id:
+  key: client.user.group.id
+  name: id
+  scope: client.user.group
+  type: string
+  deprecated: false
+  tag: 2
+client.user.group.name:
+  key: client.user.group.name
+  name: name
+  scope: client.user.group
+  type: string
+  deprecated: false
+  tag: 3
+client.user.hash:
+  key: client.user.hash
+  name: hash
+  scope: client.user
+  type: string
+  deprecated: false
+  tag: 5
+client.user.id:
+  key: client.user.id
+  name: id
+  scope: client.user
+  type: string
+  deprecated: false
+  tag: 6
+client.user.name:
+  key: client.user.name
+  name: name
+  scope: client.user
+  type: string
+  deprecated: false
+  tag: 7
+cloud:
+  key: cloud
+  name: cloud
+  scope: ''
+  type: Cloud
+  deprecated: false
+  tag: 3
+cloud.account:
+  key: cloud.account
+  name: account
+  scope: cloud
+  type: Account
+  deprecated: false
+  tag: 1
+cloud.account.id:
+  key: cloud.account.id
+  name: id
+  scope: cloud.account
+  type: string
+  deprecated: false
+  tag: 1
+cloud.account.name:
+  key: cloud.account.name
+  name: name
+  scope: cloud.account
+  type: string
+  deprecated: false
+  tag: 2
+cloud.availability_zone:
+  key: cloud.availability_zone
+  name: availability_zone
+  scope: cloud
+  type: string
+  deprecated: false
+  tag: 2
+cloud.instance:
+  key: cloud.instance
+  name: instance
+  scope: cloud
+  type: Instance
+  deprecated: false
+  tag: 3
+cloud.instance.id:
+  key: cloud.instance.id
+  name: id
+  scope: cloud.instance
+  type: string
+  deprecated: false
+  tag: 1
+cloud.instance.name:
+  key: cloud.instance.name
+  name: name
+  scope: cloud.instance
+  type: string
+  deprecated: false
+  tag: 2
+cloud.machine:
+  key: cloud.machine
+  name: machine
+  scope: cloud
+  type: Machine
+  deprecated: false
+  tag: 4
+cloud.machine.type:
+  key: cloud.machine.type
+  name: type
+  scope: cloud.machine
+  type: string
+  deprecated: false
+  tag: 1
+cloud.project:
+  key: cloud.project
+  name: project
+  scope: cloud
+  type: Project
+  deprecated: false
+  tag: 5
+cloud.project.id:
+  key: cloud.project.id
+  name: id
+  scope: cloud.project
+  type: string
+  deprecated: false
+  tag: 1
+cloud.project.name:
+  key: cloud.project.name
+  name: name
+  scope: cloud.project
+  type: string
+  deprecated: false
+  tag: 2
+cloud.provider:
+  key: cloud.provider
+  name: provider
+  scope: cloud
+  type: string
+  deprecated: false
+  tag: 6
+cloud.region:
+  key: cloud.region
+  name: region
+  scope: cloud
+  type: string
+  deprecated: false
+  tag: 7
+container:
+  key: container
+  name: container
+  scope: ''
+  type: Container
+  deprecated: false
+  tag: 4
+container.id:
+  key: container.id
+  name: id
+  scope: container
+  type: string
+  deprecated: false
+  tag: 1
+container.image:
+  key: container.image
+  name: image
+  scope: container
+  type: Image
+  deprecated: false
+  tag: 2
+container.image.name:
+  key: container.image.name
+  name: name
+  scope: container.image
+  type: string
+  deprecated: false
+  tag: 1
+container.image.tag:
+  key: container.image.tag
+  name: tag
+  scope: container.image
+  type: repeated string
+  deprecated: false
+  tag: 2
+container.labels:
+  key: container.labels
+  name: labels
+  scope: container
+  type: map <string, string>
+  deprecated: false
+  tag: 3
+container.name:
+  key: container.name
+  name: name
+  scope: container
+  type: string
+  deprecated: false
+  tag: 4
+container.runtime:
+  key: container.runtime
+  name: runtime
+  scope: container
+  type: string
+  deprecated: false
+  tag: 5
+destination:
+  key: destination
+  name: destination
+  scope: ''
+  type: Destination
+  deprecated: false
+  tag: 5
+destination.address:
+  key: destination.address
+  name: address
+  scope: destination
+  type: string
+  deprecated: false
+  tag: 1
+destination.as:
+  key: destination.as
+  name: as
+  scope: destination
+  type: As
+  deprecated: false
+  tag: 2
+destination.as.number:
+  key: destination.as.number
+  name: number
+  scope: destination.as
+  type: int64
+  deprecated: false
+  tag: 1
+destination.as.organization:
+  key: destination.as.organization
+  name: organization
+  scope: destination.as
+  type: Organization
+  deprecated: false
+  tag: 2
+destination.as.organization.name:
+  key: destination.as.organization.name
+  name: name
+  scope: destination.as.organization
+  type: string
+  deprecated: false
+  tag: 1
+destination.bytes:
+  key: destination.bytes
+  name: bytes
+  scope: destination
+  type: int64
+  deprecated: false
+  tag: 3
+destination.domain:
+  key: destination.domain
+  name: domain
+  scope: destination
+  type: string
+  deprecated: false
+  tag: 4
+destination.geo:
+  key: destination.geo
+  name: geo
+  scope: destination
+  type: Geo
+  deprecated: false
+  tag: 5
+destination.geo.city_name:
+  key: destination.geo.city_name
+  name: city_name
+  scope: destination.geo
+  type: string
+  deprecated: false
+  tag: 1
+destination.geo.continent_name:
+  key: destination.geo.continent_name
+  name: continent_name
+  scope: destination.geo
+  type: string
+  deprecated: false
+  tag: 2
+destination.geo.country_iso_code:
+  key: destination.geo.country_iso_code
+  name: country_iso_code
+  scope: destination.geo
+  type: string
+  deprecated: false
+  tag: 3
+destination.geo.country_name:
+  key: destination.geo.country_name
+  name: country_name
+  scope: destination.geo
+  type: string
+  deprecated: false
+  tag: 4
+destination.geo.location:
+  key: destination.geo.location
+  name: location
+  scope: destination.geo
+  type: string
+  deprecated: false
+  tag: 5
+destination.geo.name:
+  key: destination.geo.name
+  name: name
+  scope: destination.geo
+  type: string
+  deprecated: false
+  tag: 6
+destination.geo.region_iso_code:
+  key: destination.geo.region_iso_code
+  name: region_iso_code
+  scope: destination.geo
+  type: string
+  deprecated: false
+  tag: 7
+destination.geo.region_name:
+  key: destination.geo.region_name
+  name: region_name
+  scope: destination.geo
+  type: string
+  deprecated: false
+  tag: 8
+destination.ip:
+  key: destination.ip
+  name: ip
+  scope: destination
+  type: string
+  deprecated: false
+  tag: 6
+destination.mac:
+  key: destination.mac
+  name: mac
+  scope: destination
+  type: string
+  deprecated: false
+  tag: 7
+destination.nat:
+  key: destination.nat
+  name: nat
+  scope: destination
+  type: Nat
+  deprecated: false
+  tag: 8
+destination.nat.ip:
+  key: destination.nat.ip
+  name: ip
+  scope: destination.nat
+  type: string
+  deprecated: false
+  tag: 1
+destination.nat.port:
+  key: destination.nat.port
+  name: port
+  scope: destination.nat
+  type: int64
+  deprecated: false
+  tag: 2
+destination.packets:
+  key: destination.packets
+  name: packets
+  scope: destination
+  type: int64
+  deprecated: false
+  tag: 9
+destination.port:
+  key: destination.port
+  name: port
+  scope: destination
+  type: int64
+  deprecated: false
+  tag: 10
+destination.registered_domain:
+  key: destination.registered_domain
+  name: registered_domain
+  scope: destination
+  type: string
+  deprecated: false
+  tag: 11
+destination.top_level_domain:
+  key: destination.top_level_domain
+  name: top_level_domain
+  scope: destination
+  type: string
+  deprecated: false
+  tag: 12
+destination.user:
+  key: destination.user
+  name: user
+  scope: destination
+  type: User
+  deprecated: false
+  tag: 13
+destination.user.domain:
+  key: destination.user.domain
+  name: domain
+  scope: destination.user
+  type: string
+  deprecated: false
+  tag: 1
+destination.user.email:
+  key: destination.user.email
+  name: email
+  scope: destination.user
+  type: string
+  deprecated: false
+  tag: 2
+destination.user.full_name:
+  key: destination.user.full_name
+  name: full_name
+  scope: destination.user
+  type: string
+  deprecated: false
+  tag: 3
+destination.user.group:
+  key: destination.user.group
+  name: group
+  scope: destination.user
+  type: Group
+  deprecated: false
+  tag: 4
+destination.user.group.domain:
+  key: destination.user.group.domain
+  name: domain
+  scope: destination.user.group
+  type: string
+  deprecated: false
+  tag: 1
+destination.user.group.id:
+  key: destination.user.group.id
+  name: id
+  scope: destination.user.group
+  type: string
+  deprecated: false
+  tag: 2
+destination.user.group.name:
+  key: destination.user.group.name
+  name: name
+  scope: destination.user.group
+  type: string
+  deprecated: false
+  tag: 3
+destination.user.hash:
+  key: destination.user.hash
+  name: hash
+  scope: destination.user
+  type: string
+  deprecated: false
+  tag: 5
+destination.user.id:
+  key: destination.user.id
+  name: id
+  scope: destination.user
+  type: string
+  deprecated: false
+  tag: 6
+destination.user.name:
+  key: destination.user.name
+  name: name
+  scope: destination.user
+  type: string
+  deprecated: false
+  tag: 7
+dll:
+  key: dll
+  name: dll
+  scope: ''
+  type: Dll
+  deprecated: false
+  tag: 6
+dll.code_signature:
+  key: dll.code_signature
+  name: code_signature
+  scope: dll
+  type: CodeSignature
+  deprecated: false
+  tag: 1
+dll.code_signature.exists:
+  key: dll.code_signature.exists
+  name: exists
+  scope: dll.code_signature
+  type: bool
+  deprecated: false
+  tag: 1
+dll.code_signature.status:
+  key: dll.code_signature.status
+  name: status
+  scope: dll.code_signature
+  type: string
+  deprecated: false
+  tag: 2
+dll.code_signature.subject_name:
+  key: dll.code_signature.subject_name
+  name: subject_name
+  scope: dll.code_signature
+  type: string
+  deprecated: false
+  tag: 3
+dll.code_signature.trusted:
+  key: dll.code_signature.trusted
+  name: trusted
+  scope: dll.code_signature
+  type: bool
+  deprecated: false
+  tag: 4
+dll.code_signature.valid:
+  key: dll.code_signature.valid
+  name: valid
+  scope: dll.code_signature
+  type: bool
+  deprecated: false
+  tag: 5
+dll.hash:
+  key: dll.hash
+  name: hash
+  scope: dll
+  type: Hash
+  deprecated: false
+  tag: 2
+dll.hash.md5:
+  key: dll.hash.md5
+  name: md5
+  scope: dll.hash
+  type: string
+  deprecated: false
+  tag: 1
+dll.hash.sha1:
+  key: dll.hash.sha1
+  name: sha1
+  scope: dll.hash
+  type: string
+  deprecated: false
+  tag: 2
+dll.hash.sha256:
+  key: dll.hash.sha256
+  name: sha256
+  scope: dll.hash
+  type: string
+  deprecated: false
+  tag: 3
+dll.hash.sha512:
+  key: dll.hash.sha512
+  name: sha512
+  scope: dll.hash
+  type: string
+  deprecated: false
+  tag: 4
+dll.name:
+  key: dll.name
+  name: name
+  scope: dll
+  type: string
+  deprecated: false
+  tag: 3
+dll.path:
+  key: dll.path
+  name: path
+  scope: dll
+  type: string
+  deprecated: false
+  tag: 4
+dll.pe:
+  key: dll.pe
+  name: pe
+  scope: dll
+  type: Pe
+  deprecated: false
+  tag: 5
+dll.pe.architecture:
+  key: dll.pe.architecture
+  name: architecture
+  scope: dll.pe
+  type: string
+  deprecated: false
+  tag: 1
+dll.pe.company:
+  key: dll.pe.company
+  name: company
+  scope: dll.pe
+  type: string
+  deprecated: false
+  tag: 2
+dll.pe.description:
+  key: dll.pe.description
+  name: description
+  scope: dll.pe
+  type: string
+  deprecated: false
+  tag: 3
+dll.pe.file_version:
+  key: dll.pe.file_version
+  name: file_version
+  scope: dll.pe
+  type: string
+  deprecated: false
+  tag: 4
+dll.pe.imphash:
+  key: dll.pe.imphash
+  name: imphash
+  scope: dll.pe
+  type: string
+  deprecated: false
+  tag: 5
+dll.pe.original_file_name:
+  key: dll.pe.original_file_name
+  name: original_file_name
+  scope: dll.pe
+  type: string
+  deprecated: false
+  tag: 6
+dll.pe.product:
+  key: dll.pe.product
+  name: product
+  scope: dll.pe
+  type: string
+  deprecated: false
+  tag: 7
+dns:
+  key: dns
+  name: dns
+  scope: ''
+  type: Dns
+  deprecated: false
+  tag: 7
+dns.answers:
+  key: dns.answers
+  name: answers
+  scope: dns
+  type: Answers
+  deprecated: false
+  tag: 1
+dns.answers.class:
+  key: dns.answers.class
+  name: class
+  scope: dns.answers
+  type: string
+  deprecated: false
+  tag: 1
+dns.answers.data:
+  key: dns.answers.data
+  name: data
+  scope: dns.answers
+  type: string
+  deprecated: false
+  tag: 2
+dns.answers.name:
+  key: dns.answers.name
+  name: name
+  scope: dns.answers
+  type: string
+  deprecated: false
+  tag: 3
+dns.answers.ttl:
+  key: dns.answers.ttl
+  name: ttl
+  scope: dns.answers
+  type: int64
+  deprecated: false
+  tag: 4
+dns.answers.type:
+  key: dns.answers.type
+  name: type
+  scope: dns.answers
+  type: string
+  deprecated: false
+  tag: 5
+dns.header_flags:
+  key: dns.header_flags
+  name: header_flags
+  scope: dns
+  type: repeated string
+  deprecated: false
+  tag: 2
+dns.id:
+  key: dns.id
+  name: id
+  scope: dns
+  type: string
+  deprecated: false
+  tag: 3
+dns.op_code:
+  key: dns.op_code
+  name: op_code
+  scope: dns
+  type: string
+  deprecated: false
+  tag: 4
+dns.question:
+  key: dns.question
+  name: question
+  scope: dns
+  type: Question
+  deprecated: false
+  tag: 5
+dns.question.class:
+  key: dns.question.class
+  name: class
+  scope: dns.question
+  type: string
+  deprecated: false
+  tag: 1
+dns.question.name:
+  key: dns.question.name
+  name: name
+  scope: dns.question
+  type: string
+  deprecated: false
+  tag: 2
+dns.question.registered_domain:
+  key: dns.question.registered_domain
+  name: registered_domain
+  scope: dns.question
+  type: string
+  deprecated: false
+  tag: 3
+dns.question.subdomain:
+  key: dns.question.subdomain
+  name: subdomain
+  scope: dns.question
+  type: string
+  deprecated: false
+  tag: 4
+dns.question.top_level_domain:
+  key: dns.question.top_level_domain
+  name: top_level_domain
+  scope: dns.question
+  type: string
+  deprecated: false
+  tag: 5
+dns.question.type:
+  key: dns.question.type
+  name: type
+  scope: dns.question
+  type: string
+  deprecated: false
+  tag: 6
+dns.resolved_ip:
+  key: dns.resolved_ip
+  name: resolved_ip
+  scope: dns
+  type: repeated string
+  deprecated: false
+  tag: 6
+dns.response_code:
+  key: dns.response_code
+  name: response_code
+  scope: dns
+  type: string
+  deprecated: false
+  tag: 7
+dns.type:
+  key: dns.type
+  name: type
+  scope: dns
+  type: string
+  deprecated: false
+  tag: 8
+ecs:
+  key: ecs
+  name: ecs
+  scope: ''
+  type: Ecs
+  deprecated: false
+  tag: 8
+ecs.version:
+  key: ecs.version
+  name: version
+  scope: ecs
+  type: string
+  deprecated: false
+  tag: 1
+error:
+  key: error
+  name: error
+  scope: ''
+  type: Error
+  deprecated: false
+  tag: 9
+error.code:
+  key: error.code
+  name: code
+  scope: error
+  type: string
+  deprecated: false
+  tag: 1
+error.id:
+  key: error.id
+  name: id
+  scope: error
+  type: string
+  deprecated: false
+  tag: 2
+error.message:
+  key: error.message
+  name: message
+  scope: error
+  type: string
+  deprecated: false
+  tag: 3
+error.stack_trace:
+  key: error.stack_trace
+  name: stack_trace
+  scope: error
+  type: string
+  deprecated: false
+  tag: 4
+error.type:
+  key: error.type
+  name: type
+  scope: error
+  type: string
+  deprecated: false
+  tag: 5
+event:
+  key: event
+  name: event
+  scope: ''
+  type: Event
+  deprecated: false
+  tag: 10
+event.action:
+  key: event.action
+  name: action
+  scope: event
+  type: string
+  deprecated: false
+  tag: 1
+event.category:
+  key: event.category
+  name: category
+  scope: event
+  type: repeated string
+  deprecated: false
+  tag: 2
+event.code:
+  key: event.code
+  name: code
+  scope: event
+  type: string
+  deprecated: false
+  tag: 3
+event.created:
+  key: event.created
+  name: created
+  scope: event
+  type: string
+  deprecated: false
+  tag: 4
+event.dataset:
+  key: event.dataset
+  name: dataset
+  scope: event
+  type: string
+  deprecated: false
+  tag: 5
+event.duration:
+  key: event.duration
+  name: duration
+  scope: event
+  type: int64
+  deprecated: false
+  tag: 6
+event.end:
+  key: event.end
+  name: end
+  scope: event
+  type: string
+  deprecated: false
+  tag: 7
+event.hash:
+  key: event.hash
+  name: hash
+  scope: event
+  type: string
+  deprecated: false
+  tag: 8
+event.id:
+  key: event.id
+  name: id
+  scope: event
+  type: string
+  deprecated: false
+  tag: 9
+event.ingested:
+  key: event.ingested
+  name: ingested
+  scope: event
+  type: string
+  deprecated: false
+  tag: 10
+event.kind:
+  key: event.kind
+  name: kind
+  scope: event
+  type: string
+  deprecated: false
+  tag: 11
+event.module:
+  key: event.module
+  name: module
+  scope: event
+  type: string
+  deprecated: false
+  tag: 12
+event.original:
+  key: event.original
+  name: original
+  scope: event
+  type: string
+  deprecated: false
+  tag: 13
+event.outcome:
+  key: event.outcome
+  name: outcome
+  scope: event
+  type: string
+  deprecated: false
+  tag: 14
+event.provider:
+  key: event.provider
+  name: provider
+  scope: event
+  type: string
+  deprecated: false
+  tag: 15
+event.reference:
+  key: event.reference
+  name: reference
+  scope: event
+  type: string
+  deprecated: false
+  tag: 16
+event.risk_score:
+  key: event.risk_score
+  name: risk_score
+  scope: event
+  type: float
+  deprecated: false
+  tag: 17
+event.risk_score_norm:
+  key: event.risk_score_norm
+  name: risk_score_norm
+  scope: event
+  type: float
+  deprecated: false
+  tag: 18
+event.sequence:
+  key: event.sequence
+  name: sequence
+  scope: event
+  type: int64
+  deprecated: false
+  tag: 19
+event.severity:
+  key: event.severity
+  name: severity
+  scope: event
+  type: int64
+  deprecated: false
+  tag: 20
+event.start:
+  key: event.start
+  name: start
+  scope: event
+  type: string
+  deprecated: false
+  tag: 21
+event.timezone:
+  key: event.timezone
+  name: timezone
+  scope: event
+  type: string
+  deprecated: false
+  tag: 22
+event.type:
+  key: event.type
+  name: type
+  scope: event
+  type: repeated string
+  deprecated: false
+  tag: 23
+event.url:
+  key: event.url
+  name: url
+  scope: event
+  type: string
+  deprecated: false
+  tag: 24
+file:
+  key: file
+  name: file
+  scope: ''
+  type: File
+  deprecated: false
+  tag: 11
+file.accessed:
+  key: file.accessed
+  name: accessed
+  scope: file
+  type: string
+  deprecated: false
+  tag: 1
+file.attributes:
+  key: file.attributes
+  name: attributes
+  scope: file
+  type: repeated string
+  deprecated: false
+  tag: 2
+file.code_signature:
+  key: file.code_signature
+  name: code_signature
+  scope: file
+  type: CodeSignature
+  deprecated: false
+  tag: 3
+file.code_signature.exists:
+  key: file.code_signature.exists
+  name: exists
+  scope: file.code_signature
+  type: bool
+  deprecated: false
+  tag: 1
+file.code_signature.status:
+  key: file.code_signature.status
+  name: status
+  scope: file.code_signature
+  type: string
+  deprecated: false
+  tag: 2
+file.code_signature.subject_name:
+  key: file.code_signature.subject_name
+  name: subject_name
+  scope: file.code_signature
+  type: string
+  deprecated: false
+  tag: 3
+file.code_signature.trusted:
+  key: file.code_signature.trusted
+  name: trusted
+  scope: file.code_signature
+  type: bool
+  deprecated: false
+  tag: 4
+file.code_signature.valid:
+  key: file.code_signature.valid
+  name: valid
+  scope: file.code_signature
+  type: bool
+  deprecated: false
+  tag: 5
+file.created:
+  key: file.created
+  name: created
+  scope: file
+  type: string
+  deprecated: false
+  tag: 4
+file.ctime:
+  key: file.ctime
+  name: ctime
+  scope: file
+  type: string
+  deprecated: false
+  tag: 5
+file.device:
+  key: file.device
+  name: device
+  scope: file
+  type: string
+  deprecated: false
+  tag: 6
+file.directory:
+  key: file.directory
+  name: directory
+  scope: file
+  type: string
+  deprecated: false
+  tag: 7
+file.drive_letter:
+  key: file.drive_letter
+  name: drive_letter
+  scope: file
+  type: string
+  deprecated: false
+  tag: 8
+file.extension:
+  key: file.extension
+  name: extension
+  scope: file
+  type: string
+  deprecated: false
+  tag: 9
+file.gid:
+  key: file.gid
+  name: gid
+  scope: file
+  type: string
+  deprecated: false
+  tag: 10
+file.group:
+  key: file.group
+  name: group
+  scope: file
+  type: string
+  deprecated: false
+  tag: 11
+file.hash:
+  key: file.hash
+  name: hash
+  scope: file
+  type: Hash
+  deprecated: false
+  tag: 12
+file.hash.md5:
+  key: file.hash.md5
+  name: md5
+  scope: file.hash
+  type: string
+  deprecated: false
+  tag: 1
+file.hash.sha1:
+  key: file.hash.sha1
+  name: sha1
+  scope: file.hash
+  type: string
+  deprecated: false
+  tag: 2
+file.hash.sha256:
+  key: file.hash.sha256
+  name: sha256
+  scope: file.hash
+  type: string
+  deprecated: false
+  tag: 3
+file.hash.sha512:
+  key: file.hash.sha512
+  name: sha512
+  scope: file.hash
+  type: string
+  deprecated: false
+  tag: 4
+file.inode:
+  key: file.inode
+  name: inode
+  scope: file
+  type: string
+  deprecated: false
+  tag: 13
+file.mime_type:
+  key: file.mime_type
+  name: mime_type
+  scope: file
+  type: string
+  deprecated: false
+  tag: 14
+file.mode:
+  key: file.mode
+  name: mode
+  scope: file
+  type: string
+  deprecated: false
+  tag: 15
+file.mtime:
+  key: file.mtime
+  name: mtime
+  scope: file
+  type: string
+  deprecated: false
+  tag: 16
+file.name:
+  key: file.name
+  name: name
+  scope: file
+  type: string
+  deprecated: false
+  tag: 17
+file.owner:
+  key: file.owner
+  name: owner
+  scope: file
+  type: string
+  deprecated: false
+  tag: 18
+file.path:
+  key: file.path
+  name: path
+  scope: file
+  type: string
+  deprecated: false
+  tag: 19
+file.pe:
+  key: file.pe
+  name: pe
+  scope: file
+  type: Pe
+  deprecated: false
+  tag: 20
+file.pe.architecture:
+  key: file.pe.architecture
+  name: architecture
+  scope: file.pe
+  type: string
+  deprecated: false
+  tag: 1
+file.pe.company:
+  key: file.pe.company
+  name: company
+  scope: file.pe
+  type: string
+  deprecated: false
+  tag: 2
+file.pe.description:
+  key: file.pe.description
+  name: description
+  scope: file.pe
+  type: string
+  deprecated: false
+  tag: 3
+file.pe.file_version:
+  key: file.pe.file_version
+  name: file_version
+  scope: file.pe
+  type: string
+  deprecated: false
+  tag: 4
+file.pe.imphash:
+  key: file.pe.imphash
+  name: imphash
+  scope: file.pe
+  type: string
+  deprecated: false
+  tag: 5
+file.pe.original_file_name:
+  key: file.pe.original_file_name
+  name: original_file_name
+  scope: file.pe
+  type: string
+  deprecated: false
+  tag: 6
+file.pe.product:
+  key: file.pe.product
+  name: product
+  scope: file.pe
+  type: string
+  deprecated: false
+  tag: 7
+file.size:
+  key: file.size
+  name: size
+  scope: file
+  type: int64
+  deprecated: false
+  tag: 21
+file.target_path:
+  key: file.target_path
+  name: target_path
+  scope: file
+  type: string
+  deprecated: false
+  tag: 22
+file.type:
+  key: file.type
+  name: type
+  scope: file
+  type: string
+  deprecated: false
+  tag: 23
+file.uid:
+  key: file.uid
+  name: uid
+  scope: file
+  type: string
+  deprecated: false
+  tag: 24
+group:
+  key: group
+  name: group
+  scope: ''
+  type: Group
+  deprecated: false
+  tag: 12
+group.domain:
+  key: group.domain
+  name: domain
+  scope: group
+  type: string
+  deprecated: false
+  tag: 1
+group.id:
+  key: group.id
+  name: id
+  scope: group
+  type: string
+  deprecated: false
+  tag: 2
+group.name:
+  key: group.name
+  name: name
+  scope: group
+  type: string
+  deprecated: false
+  tag: 3
+host:
+  key: host
+  name: host
+  scope: ''
+  type: Host
+  deprecated: false
+  tag: 13
+host.architecture:
+  key: host.architecture
+  name: architecture
+  scope: host
+  type: string
+  deprecated: false
+  tag: 1
+host.domain:
+  key: host.domain
+  name: domain
+  scope: host
+  type: string
+  deprecated: false
+  tag: 2
+host.geo:
+  key: host.geo
+  name: geo
+  scope: host
+  type: Geo
+  deprecated: false
+  tag: 3
+host.geo.city_name:
+  key: host.geo.city_name
+  name: city_name
+  scope: host.geo
+  type: string
+  deprecated: false
+  tag: 1
+host.geo.continent_name:
+  key: host.geo.continent_name
+  name: continent_name
+  scope: host.geo
+  type: string
+  deprecated: false
+  tag: 2
+host.geo.country_iso_code:
+  key: host.geo.country_iso_code
+  name: country_iso_code
+  scope: host.geo
+  type: string
+  deprecated: false
+  tag: 3
+host.geo.country_name:
+  key: host.geo.country_name
+  name: country_name
+  scope: host.geo
+  type: string
+  deprecated: false
+  tag: 4
+host.geo.location:
+  key: host.geo.location
+  name: location
+  scope: host.geo
+  type: string
+  deprecated: false
+  tag: 5
+host.geo.name:
+  key: host.geo.name
+  name: name
+  scope: host.geo
+  type: string
+  deprecated: false
+  tag: 6
+host.geo.region_iso_code:
+  key: host.geo.region_iso_code
+  name: region_iso_code
+  scope: host.geo
+  type: string
+  deprecated: false
+  tag: 7
+host.geo.region_name:
+  key: host.geo.region_name
+  name: region_name
+  scope: host.geo
+  type: string
+  deprecated: false
+  tag: 8
+host.hostname:
+  key: host.hostname
+  name: hostname
+  scope: host
+  type: string
+  deprecated: false
+  tag: 4
+host.id:
+  key: host.id
+  name: id
+  scope: host
+  type: string
+  deprecated: false
+  tag: 5
+host.ip:
+  key: host.ip
+  name: ip
+  scope: host
+  type: repeated string
+  deprecated: false
+  tag: 6
+host.mac:
+  key: host.mac
+  name: mac
+  scope: host
+  type: repeated string
+  deprecated: false
+  tag: 7
+host.name:
+  key: host.name
+  name: name
+  scope: host
+  type: string
+  deprecated: false
+  tag: 8
+host.os:
+  key: host.os
+  name: os
+  scope: host
+  type: Os
+  deprecated: false
+  tag: 9
+host.os.family:
+  key: host.os.family
+  name: family
+  scope: host.os
+  type: string
+  deprecated: false
+  tag: 1
+host.os.full:
+  key: host.os.full
+  name: full
+  scope: host.os
+  type: string
+  deprecated: false
+  tag: 2
+host.os.kernel:
+  key: host.os.kernel
+  name: kernel
+  scope: host.os
+  type: string
+  deprecated: false
+  tag: 3
+host.os.name:
+  key: host.os.name
+  name: name
+  scope: host.os
+  type: string
+  deprecated: false
+  tag: 4
+host.os.platform:
+  key: host.os.platform
+  name: platform
+  scope: host.os
+  type: string
+  deprecated: false
+  tag: 5
+host.os.version:
+  key: host.os.version
+  name: version
+  scope: host.os
+  type: string
+  deprecated: false
+  tag: 6
+host.type:
+  key: host.type
+  name: type
+  scope: host
+  type: string
+  deprecated: false
+  tag: 10
+host.uptime:
+  key: host.uptime
+  name: uptime
+  scope: host
+  type: int64
+  deprecated: false
+  tag: 11
+host.user:
+  key: host.user
+  name: user
+  scope: host
+  type: User
+  deprecated: false
+  tag: 12
+host.user.domain:
+  key: host.user.domain
+  name: domain
+  scope: host.user
+  type: string
+  deprecated: false
+  tag: 1
+host.user.email:
+  key: host.user.email
+  name: email
+  scope: host.user
+  type: string
+  deprecated: false
+  tag: 2
+host.user.full_name:
+  key: host.user.full_name
+  name: full_name
+  scope: host.user
+  type: string
+  deprecated: false
+  tag: 3
+host.user.group:
+  key: host.user.group
+  name: group
+  scope: host.user
+  type: Group
+  deprecated: false
+  tag: 4
+host.user.group.domain:
+  key: host.user.group.domain
+  name: domain
+  scope: host.user.group
+  type: string
+  deprecated: false
+  tag: 1
+host.user.group.id:
+  key: host.user.group.id
+  name: id
+  scope: host.user.group
+  type: string
+  deprecated: false
+  tag: 2
+host.user.group.name:
+  key: host.user.group.name
+  name: name
+  scope: host.user.group
+  type: string
+  deprecated: false
+  tag: 3
+host.user.hash:
+  key: host.user.hash
+  name: hash
+  scope: host.user
+  type: string
+  deprecated: false
+  tag: 5
+host.user.id:
+  key: host.user.id
+  name: id
+  scope: host.user
+  type: string
+  deprecated: false
+  tag: 6
+host.user.name:
+  key: host.user.name
+  name: name
+  scope: host.user
+  type: string
+  deprecated: false
+  tag: 7
+http.request.body:
+  key: http.request.body
+  name: body
+  scope: http.request
+  type: Body
+  deprecated: false
+  tag: 1
+http:
+  key: http
+  name: http
+  scope: ''
+  type: Http
+  deprecated: false
+  tag: 14
+http.request:
+  key: http.request
+  name: request
+  scope: http
+  type: Request
+  deprecated: false
+  tag: 1
+http.request.body.bytes:
+  key: http.request.body.bytes
+  name: bytes
+  scope: http.request.body
+  type: int64
+  deprecated: false
+  tag: 1
+http.request.body.content:
+  key: http.request.body.content
+  name: content
+  scope: http.request.body
+  type: string
+  deprecated: false
+  tag: 2
+http.request.bytes:
+  key: http.request.bytes
+  name: bytes
+  scope: http.request
+  type: int64
+  deprecated: false
+  tag: 2
+http.request.method:
+  key: http.request.method
+  name: method
+  scope: http.request
+  type: string
+  deprecated: false
+  tag: 3
+http.request.referrer:
+  key: http.request.referrer
+  name: referrer
+  scope: http.request
+  type: string
+  deprecated: false
+  tag: 4
+http.response:
+  key: http.response
+  name: response
+  scope: http
+  type: Response
+  deprecated: false
+  tag: 2
+http.response.body:
+  key: http.response.body
+  name: body
+  scope: http.response
+  type: Body
+  deprecated: false
+  tag: 1
+http.response.body.bytes:
+  key: http.response.body.bytes
+  name: bytes
+  scope: http.response.body
+  type: int64
+  deprecated: false
+  tag: 1
+http.response.body.content:
+  key: http.response.body.content
+  name: content
+  scope: http.response.body
+  type: string
+  deprecated: false
+  tag: 2
+http.response.bytes:
+  key: http.response.bytes
+  name: bytes
+  scope: http.response
+  type: int64
+  deprecated: false
+  tag: 2
+http.response.status_code:
+  key: http.response.status_code
+  name: status_code
+  scope: http.response
+  type: int64
+  deprecated: false
+  tag: 3
+http.version:
+  key: http.version
+  name: version
+  scope: http
+  type: string
+  deprecated: false
+  tag: 3
+labels:
+  key: labels
+  name: labels
+  scope: ''
+  type: map <string, string>
+  deprecated: false
+  tag: 15
+log:
+  key: log
+  name: log
+  scope: ''
+  type: Log
+  deprecated: false
+  tag: 16
+log.file:
+  key: log.file
+  name: file
+  scope: log
+  type: File
+  deprecated: false
+  tag: 1
+log.file.path:
+  key: log.file.path
+  name: path
+  scope: log.file
+  type: string
+  deprecated: false
+  tag: 1
+log.level:
+  key: log.level
+  name: level
+  scope: log
+  type: string
+  deprecated: false
+  tag: 2
+log.logger:
+  key: log.logger
+  name: logger
+  scope: log
+  type: string
+  deprecated: false
+  tag: 3
+log.origin:
+  key: log.origin
+  name: origin
+  scope: log
+  type: Origin
+  deprecated: false
+  tag: 4
+log.origin.file:
+  key: log.origin.file
+  name: file
+  scope: log.origin
+  type: File
+  deprecated: false
+  tag: 1
+log.origin.file.line:
+  key: log.origin.file.line
+  name: line
+  scope: log.origin.file
+  type: int32
+  deprecated: false
+  tag: 1
+log.origin.file.name:
+  key: log.origin.file.name
+  name: name
+  scope: log.origin.file
+  type: string
+  deprecated: false
+  tag: 2
+log.origin.function:
+  key: log.origin.function
+  name: function
+  scope: log.origin
+  type: string
+  deprecated: false
+  tag: 2
+log.original:
+  key: log.original
+  name: original
+  scope: log
+  type: string
+  deprecated: false
+  tag: 5
+log.syslog:
+  key: log.syslog
+  name: syslog
+  scope: log
+  type: Syslog
+  deprecated: false
+  tag: 6
+log.syslog.facility:
+  key: log.syslog.facility
+  name: facility
+  scope: log.syslog
+  type: Facility
+  deprecated: false
+  tag: 1
+log.syslog.facility.code:
+  key: log.syslog.facility.code
+  name: code
+  scope: log.syslog.facility
+  type: int64
+  deprecated: false
+  tag: 1
+log.syslog.facility.name:
+  key: log.syslog.facility.name
+  name: name
+  scope: log.syslog.facility
+  type: string
+  deprecated: false
+  tag: 2
+log.syslog.priority:
+  key: log.syslog.priority
+  name: priority
+  scope: log.syslog
+  type: int64
+  deprecated: false
+  tag: 2
+log.syslog.severity:
+  key: log.syslog.severity
+  name: severity
+  scope: log.syslog
+  type: Severity
+  deprecated: false
+  tag: 3
+log.syslog.severity.code:
+  key: log.syslog.severity.code
+  name: code
+  scope: log.syslog.severity
+  type: int64
+  deprecated: false
+  tag: 1
+log.syslog.severity.name:
+  key: log.syslog.severity.name
+  name: name
+  scope: log.syslog.severity
+  type: string
+  deprecated: false
+  tag: 2
+message:
+  key: message
+  name: message
+  scope: ''
+  type: string
+  deprecated: false
+  tag: 17
+network:
+  key: network
+  name: network
+  scope: ''
+  type: Network
+  deprecated: false
+  tag: 18
+network.application:
+  key: network.application
+  name: application
+  scope: network
+  type: string
+  deprecated: false
+  tag: 1
+network.bytes:
+  key: network.bytes
+  name: bytes
+  scope: network
+  type: int64
+  deprecated: false
+  tag: 2
+network.community_id:
+  key: network.community_id
+  name: community_id
+  scope: network
+  type: string
+  deprecated: false
+  tag: 3
+network.direction:
+  key: network.direction
+  name: direction
+  scope: network
+  type: string
+  deprecated: false
+  tag: 4
+network.forwarded_ip:
+  key: network.forwarded_ip
+  name: forwarded_ip
+  scope: network
+  type: string
+  deprecated: false
+  tag: 5
+network.iana_number:
+  key: network.iana_number
+  name: iana_number
+  scope: network
+  type: string
+  deprecated: false
+  tag: 6
+network.inner:
+  key: network.inner
+  name: inner
+  scope: network
+  type: Inner
+  deprecated: false
+  tag: 7
+network.inner.vlan:
+  key: network.inner.vlan
+  name: vlan
+  scope: network.inner
+  type: Vlan
+  deprecated: false
+  tag: 1
+network.inner.vlan.id:
+  key: network.inner.vlan.id
+  name: id
+  scope: network.inner.vlan
+  type: string
+  deprecated: false
+  tag: 1
+network.inner.vlan.name:
+  key: network.inner.vlan.name
+  name: name
+  scope: network.inner.vlan
+  type: string
+  deprecated: false
+  tag: 2
+network.name:
+  key: network.name
+  name: name
+  scope: network
+  type: string
+  deprecated: false
+  tag: 8
+network.packets:
+  key: network.packets
+  name: packets
+  scope: network
+  type: int64
+  deprecated: false
+  tag: 9
+network.protocol:
+  key: network.protocol
+  name: protocol
+  scope: network
+  type: string
+  deprecated: false
+  tag: 10
+network.transport:
+  key: network.transport
+  name: transport
+  scope: network
+  type: string
+  deprecated: false
+  tag: 11
+network.type:
+  key: network.type
+  name: type
+  scope: network
+  type: string
+  deprecated: false
+  tag: 12
+network.vlan:
+  key: network.vlan
+  name: vlan
+  scope: network
+  type: Vlan
+  deprecated: false
+  tag: 13
+network.vlan.id:
+  key: network.vlan.id
+  name: id
+  scope: network.vlan
+  type: string
+  deprecated: false
+  tag: 1
+network.vlan.name:
+  key: network.vlan.name
+  name: name
+  scope: network.vlan
+  type: string
+  deprecated: false
+  tag: 2
+observer.egress.interface:
+  key: observer.egress.interface
+  name: interface
+  scope: observer.egress
+  type: Interface
+  deprecated: false
+  tag: 1
+observer:
+  key: observer
+  name: observer
+  scope: ''
+  type: Observer
+  deprecated: false
+  tag: 19
+observer.egress:
+  key: observer.egress
+  name: egress
+  scope: observer
+  type: Egress
+  deprecated: false
+  tag: 1
+observer.egress.interface.alias:
+  key: observer.egress.interface.alias
+  name: alias
+  scope: observer.egress.interface
+  type: string
+  deprecated: false
+  tag: 1
+observer.egress.interface.id:
+  key: observer.egress.interface.id
+  name: id
+  scope: observer.egress.interface
+  type: string
+  deprecated: false
+  tag: 2
+observer.egress.interface.name:
+  key: observer.egress.interface.name
+  name: name
+  scope: observer.egress.interface
+  type: string
+  deprecated: false
+  tag: 3
+observer.egress.vlan:
+  key: observer.egress.vlan
+  name: vlan
+  scope: observer.egress
+  type: Vlan
+  deprecated: false
+  tag: 2
+observer.egress.vlan.id:
+  key: observer.egress.vlan.id
+  name: id
+  scope: observer.egress.vlan
+  type: string
+  deprecated: false
+  tag: 1
+observer.egress.vlan.name:
+  key: observer.egress.vlan.name
+  name: name
+  scope: observer.egress.vlan
+  type: string
+  deprecated: false
+  tag: 2
+observer.egress.zone:
+  key: observer.egress.zone
+  name: zone
+  scope: observer.egress
+  type: string
+  deprecated: false
+  tag: 3
+observer.geo:
+  key: observer.geo
+  name: geo
+  scope: observer
+  type: Geo
+  deprecated: false
+  tag: 2
+observer.geo.city_name:
+  key: observer.geo.city_name
+  name: city_name
+  scope: observer.geo
+  type: string
+  deprecated: false
+  tag: 1
+observer.geo.continent_name:
+  key: observer.geo.continent_name
+  name: continent_name
+  scope: observer.geo
+  type: string
+  deprecated: false
+  tag: 2
+observer.geo.country_iso_code:
+  key: observer.geo.country_iso_code
+  name: country_iso_code
+  scope: observer.geo
+  type: string
+  deprecated: false
+  tag: 3
+observer.geo.country_name:
+  key: observer.geo.country_name
+  name: country_name
+  scope: observer.geo
+  type: string
+  deprecated: false
+  tag: 4
+observer.geo.location:
+  key: observer.geo.location
+  name: location
+  scope: observer.geo
+  type: string
+  deprecated: false
+  tag: 5
+observer.geo.name:
+  key: observer.geo.name
+  name: name
+  scope: observer.geo
+  type: string
+  deprecated: false
+  tag: 6
+observer.geo.region_iso_code:
+  key: observer.geo.region_iso_code
+  name: region_iso_code
+  scope: observer.geo
+  type: string
+  deprecated: false
+  tag: 7
+observer.geo.region_name:
+  key: observer.geo.region_name
+  name: region_name
+  scope: observer.geo
+  type: string
+  deprecated: false
+  tag: 8
+observer.hostname:
+  key: observer.hostname
+  name: hostname
+  scope: observer
+  type: string
+  deprecated: false
+  tag: 3
+observer.ingress:
+  key: observer.ingress
+  name: ingress
+  scope: observer
+  type: Ingress
+  deprecated: false
+  tag: 4
+observer.ingress.interface:
+  key: observer.ingress.interface
+  name: interface
+  scope: observer.ingress
+  type: Interface
+  deprecated: false
+  tag: 1
+observer.ingress.interface.alias:
+  key: observer.ingress.interface.alias
+  name: alias
+  scope: observer.ingress.interface
+  type: string
+  deprecated: false
+  tag: 1
+observer.ingress.interface.id:
+  key: observer.ingress.interface.id
+  name: id
+  scope: observer.ingress.interface
+  type: string
+  deprecated: false
+  tag: 2
+observer.ingress.interface.name:
+  key: observer.ingress.interface.name
+  name: name
+  scope: observer.ingress.interface
+  type: string
+  deprecated: false
+  tag: 3
+observer.ingress.vlan:
+  key: observer.ingress.vlan
+  name: vlan
+  scope: observer.ingress
+  type: Vlan
+  deprecated: false
+  tag: 2
+observer.ingress.vlan.id:
+  key: observer.ingress.vlan.id
+  name: id
+  scope: observer.ingress.vlan
+  type: string
+  deprecated: false
+  tag: 1
+observer.ingress.vlan.name:
+  key: observer.ingress.vlan.name
+  name: name
+  scope: observer.ingress.vlan
+  type: string
+  deprecated: false
+  tag: 2
+observer.ingress.zone:
+  key: observer.ingress.zone
+  name: zone
+  scope: observer.ingress
+  type: string
+  deprecated: false
+  tag: 3
+observer.ip:
+  key: observer.ip
+  name: ip
+  scope: observer
+  type: repeated string
+  deprecated: false
+  tag: 5
+observer.mac:
+  key: observer.mac
+  name: mac
+  scope: observer
+  type: repeated string
+  deprecated: false
+  tag: 6
+observer.name:
+  key: observer.name
+  name: name
+  scope: observer
+  type: string
+  deprecated: false
+  tag: 7
+observer.os:
+  key: observer.os
+  name: os
+  scope: observer
+  type: Os
+  deprecated: false
+  tag: 8
+observer.os.family:
+  key: observer.os.family
+  name: family
+  scope: observer.os
+  type: string
+  deprecated: false
+  tag: 1
+observer.os.full:
+  key: observer.os.full
+  name: full
+  scope: observer.os
+  type: string
+  deprecated: false
+  tag: 2
+observer.os.kernel:
+  key: observer.os.kernel
+  name: kernel
+  scope: observer.os
+  type: string
+  deprecated: false
+  tag: 3
+observer.os.name:
+  key: observer.os.name
+  name: name
+  scope: observer.os
+  type: string
+  deprecated: false
+  tag: 4
+observer.os.platform:
+  key: observer.os.platform
+  name: platform
+  scope: observer.os
+  type: string
+  deprecated: false
+  tag: 5
+observer.os.version:
+  key: observer.os.version
+  name: version
+  scope: observer.os
+  type: string
+  deprecated: false
+  tag: 6
+observer.product:
+  key: observer.product
+  name: product
+  scope: observer
+  type: string
+  deprecated: false
+  tag: 9
+observer.serial_number:
+  key: observer.serial_number
+  name: serial_number
+  scope: observer
+  type: string
+  deprecated: false
+  tag: 10
+observer.type:
+  key: observer.type
+  name: type
+  scope: observer
+  type: string
+  deprecated: false
+  tag: 11
+observer.vendor:
+  key: observer.vendor
+  name: vendor
+  scope: observer
+  type: string
+  deprecated: false
+  tag: 12
+observer.version:
+  key: observer.version
+  name: version
+  scope: observer
+  type: string
+  deprecated: false
+  tag: 13
+organization:
+  key: organization
+  name: organization
+  scope: ''
+  type: Organization
+  deprecated: false
+  tag: 20
+organization.id:
+  key: organization.id
+  name: id
+  scope: organization
+  type: string
+  deprecated: false
+  tag: 1
+organization.name:
+  key: organization.name
+  name: name
+  scope: organization
+  type: string
+  deprecated: false
+  tag: 2
+package:
+  key: package
+  name: package
+  scope: ''
+  type: Package
+  deprecated: false
+  tag: 21
+package.architecture:
+  key: package.architecture
+  name: architecture
+  scope: package
+  type: string
+  deprecated: false
+  tag: 1
+package.build_version:
+  key: package.build_version
+  name: build_version
+  scope: package
+  type: string
+  deprecated: false
+  tag: 2
+package.checksum:
+  key: package.checksum
+  name: checksum
+  scope: package
+  type: string
+  deprecated: false
+  tag: 3
+package.description:
+  key: package.description
+  name: description
+  scope: package
+  type: string
+  deprecated: false
+  tag: 4
+package.install_scope:
+  key: package.install_scope
+  name: install_scope
+  scope: package
+  type: string
+  deprecated: false
+  tag: 5
+package.installed:
+  key: package.installed
+  name: installed
+  scope: package
+  type: string
+  deprecated: false
+  tag: 6
+package.license:
+  key: package.license
+  name: license
+  scope: package
+  type: string
+  deprecated: false
+  tag: 7
+package.name:
+  key: package.name
+  name: name
+  scope: package
+  type: string
+  deprecated: false
+  tag: 8
+package.path:
+  key: package.path
+  name: path
+  scope: package
+  type: string
+  deprecated: false
+  tag: 9
+package.reference:
+  key: package.reference
+  name: reference
+  scope: package
+  type: string
+  deprecated: false
+  tag: 10
+package.size:
+  key: package.size
+  name: size
+  scope: package
+  type: int64
+  deprecated: false
+  tag: 11
+package.type:
+  key: package.type
+  name: type
+  scope: package
+  type: string
+  deprecated: false
+  tag: 12
+package.version:
+  key: package.version
+  name: version
+  scope: package
+  type: string
+  deprecated: false
+  tag: 13
+process:
+  key: process
+  name: process
+  scope: ''
+  type: Process
+  deprecated: false
+  tag: 22
+process.args:
+  key: process.args
+  name: args
+  scope: process
+  type: repeated string
+  deprecated: false
+  tag: 1
+process.args_count:
+  key: process.args_count
+  name: args_count
+  scope: process
+  type: int64
+  deprecated: false
+  tag: 2
+process.code_signature:
+  key: process.code_signature
+  name: code_signature
+  scope: process
+  type: CodeSignature
+  deprecated: false
+  tag: 3
+process.code_signature.exists:
+  key: process.code_signature.exists
+  name: exists
+  scope: process.code_signature
+  type: bool
+  deprecated: false
+  tag: 1
+process.code_signature.status:
+  key: process.code_signature.status
+  name: status
+  scope: process.code_signature
+  type: string
+  deprecated: false
+  tag: 2
+process.code_signature.subject_name:
+  key: process.code_signature.subject_name
+  name: subject_name
+  scope: process.code_signature
+  type: string
+  deprecated: false
+  tag: 3
+process.code_signature.trusted:
+  key: process.code_signature.trusted
+  name: trusted
+  scope: process.code_signature
+  type: bool
+  deprecated: false
+  tag: 4
+process.code_signature.valid:
+  key: process.code_signature.valid
+  name: valid
+  scope: process.code_signature
+  type: bool
+  deprecated: false
+  tag: 5
+process.command_line:
+  key: process.command_line
+  name: command_line
+  scope: process
+  type: string
+  deprecated: false
+  tag: 4
+process.entity_id:
+  key: process.entity_id
+  name: entity_id
+  scope: process
+  type: string
+  deprecated: false
+  tag: 5
+process.executable:
+  key: process.executable
+  name: executable
+  scope: process
+  type: string
+  deprecated: false
+  tag: 6
+process.exit_code:
+  key: process.exit_code
+  name: exit_code
+  scope: process
+  type: int64
+  deprecated: false
+  tag: 7
+process.hash:
+  key: process.hash
+  name: hash
+  scope: process
+  type: Hash
+  deprecated: false
+  tag: 8
+process.hash.md5:
+  key: process.hash.md5
+  name: md5
+  scope: process.hash
+  type: string
+  deprecated: false
+  tag: 1
+process.hash.sha1:
+  key: process.hash.sha1
+  name: sha1
+  scope: process.hash
+  type: string
+  deprecated: false
+  tag: 2
+process.hash.sha256:
+  key: process.hash.sha256
+  name: sha256
+  scope: process.hash
+  type: string
+  deprecated: false
+  tag: 3
+process.hash.sha512:
+  key: process.hash.sha512
+  name: sha512
+  scope: process.hash
+  type: string
+  deprecated: false
+  tag: 4
+process.name:
+  key: process.name
+  name: name
+  scope: process
+  type: string
+  deprecated: false
+  tag: 9
+process.parent:
+  key: process.parent
+  name: parent
+  scope: process
+  type: Parent
+  deprecated: false
+  tag: 10
+process.parent.args:
+  key: process.parent.args
+  name: args
+  scope: process.parent
+  type: repeated string
+  deprecated: false
+  tag: 1
+process.parent.args_count:
+  key: process.parent.args_count
+  name: args_count
+  scope: process.parent
+  type: int64
+  deprecated: false
+  tag: 2
+process.parent.code_signature:
+  key: process.parent.code_signature
+  name: code_signature
+  scope: process.parent
+  type: CodeSignature
+  deprecated: false
+  tag: 3
+process.parent.code_signature.exists:
+  key: process.parent.code_signature.exists
+  name: exists
+  scope: process.parent.code_signature
+  type: bool
+  deprecated: false
+  tag: 1
+process.parent.code_signature.status:
+  key: process.parent.code_signature.status
+  name: status
+  scope: process.parent.code_signature
+  type: string
+  deprecated: false
+  tag: 2
+process.parent.code_signature.subject_name:
+  key: process.parent.code_signature.subject_name
+  name: subject_name
+  scope: process.parent.code_signature
+  type: string
+  deprecated: false
+  tag: 3
+process.parent.code_signature.trusted:
+  key: process.parent.code_signature.trusted
+  name: trusted
+  scope: process.parent.code_signature
+  type: bool
+  deprecated: false
+  tag: 4
+process.parent.code_signature.valid:
+  key: process.parent.code_signature.valid
+  name: valid
+  scope: process.parent.code_signature
+  type: bool
+  deprecated: false
+  tag: 5
+process.parent.command_line:
+  key: process.parent.command_line
+  name: command_line
+  scope: process.parent
+  type: string
+  deprecated: false
+  tag: 4
+process.parent.entity_id:
+  key: process.parent.entity_id
+  name: entity_id
+  scope: process.parent
+  type: string
+  deprecated: false
+  tag: 5
+process.parent.executable:
+  key: process.parent.executable
+  name: executable
+  scope: process.parent
+  type: string
+  deprecated: false
+  tag: 6
+process.parent.exit_code:
+  key: process.parent.exit_code
+  name: exit_code
+  scope: process.parent
+  type: int64
+  deprecated: false
+  tag: 7
+process.parent.hash:
+  key: process.parent.hash
+  name: hash
+  scope: process.parent
+  type: Hash
+  deprecated: false
+  tag: 8
+process.parent.hash.md5:
+  key: process.parent.hash.md5
+  name: md5
+  scope: process.parent.hash
+  type: string
+  deprecated: false
+  tag: 1
+process.parent.hash.sha1:
+  key: process.parent.hash.sha1
+  name: sha1
+  scope: process.parent.hash
+  type: string
+  deprecated: false
+  tag: 2
+process.parent.hash.sha256:
+  key: process.parent.hash.sha256
+  name: sha256
+  scope: process.parent.hash
+  type: string
+  deprecated: false
+  tag: 3
+process.parent.hash.sha512:
+  key: process.parent.hash.sha512
+  name: sha512
+  scope: process.parent.hash
+  type: string
+  deprecated: false
+  tag: 4
+process.parent.name:
+  key: process.parent.name
+  name: name
+  scope: process.parent
+  type: string
+  deprecated: false
+  tag: 9
+process.parent.pgid:
+  key: process.parent.pgid
+  name: pgid
+  scope: process.parent
+  type: int64
+  deprecated: false
+  tag: 10
+process.parent.pid:
+  key: process.parent.pid
+  name: pid
+  scope: process.parent
+  type: int64
+  deprecated: false
+  tag: 11
+process.parent.ppid:
+  key: process.parent.ppid
+  name: ppid
+  scope: process.parent
+  type: int64
+  deprecated: false
+  tag: 12
+process.parent.start:
+  key: process.parent.start
+  name: start
+  scope: process.parent
+  type: string
+  deprecated: false
+  tag: 13
+process.parent.thread:
+  key: process.parent.thread
+  name: thread
+  scope: process.parent
+  type: Thread
+  deprecated: false
+  tag: 14
+process.parent.thread.id:
+  key: process.parent.thread.id
+  name: id
+  scope: process.parent.thread
+  type: int64
+  deprecated: false
+  tag: 1
+process.parent.thread.name:
+  key: process.parent.thread.name
+  name: name
+  scope: process.parent.thread
+  type: string
+  deprecated: false
+  tag: 2
+process.parent.title:
+  key: process.parent.title
+  name: title
+  scope: process.parent
+  type: string
+  deprecated: false
+  tag: 15
+process.parent.uptime:
+  key: process.parent.uptime
+  name: uptime
+  scope: process.parent
+  type: int64
+  deprecated: false
+  tag: 16
+process.parent.working_directory:
+  key: process.parent.working_directory
+  name: working_directory
+  scope: process.parent
+  type: string
+  deprecated: false
+  tag: 17
+process.pe:
+  key: process.pe
+  name: pe
+  scope: process
+  type: Pe
+  deprecated: false
+  tag: 11
+process.pe.architecture:
+  key: process.pe.architecture
+  name: architecture
+  scope: process.pe
+  type: string
+  deprecated: false
+  tag: 1
+process.pe.company:
+  key: process.pe.company
+  name: company
+  scope: process.pe
+  type: string
+  deprecated: false
+  tag: 2
+process.pe.description:
+  key: process.pe.description
+  name: description
+  scope: process.pe
+  type: string
+  deprecated: false
+  tag: 3
+process.pe.file_version:
+  key: process.pe.file_version
+  name: file_version
+  scope: process.pe
+  type: string
+  deprecated: false
+  tag: 4
+process.pe.imphash:
+  key: process.pe.imphash
+  name: imphash
+  scope: process.pe
+  type: string
+  deprecated: false
+  tag: 5
+process.pe.original_file_name:
+  key: process.pe.original_file_name
+  name: original_file_name
+  scope: process.pe
+  type: string
+  deprecated: false
+  tag: 6
+process.pe.product:
+  key: process.pe.product
+  name: product
+  scope: process.pe
+  type: string
+  deprecated: false
+  tag: 7
+process.pgid:
+  key: process.pgid
+  name: pgid
+  scope: process
+  type: int64
+  deprecated: false
+  tag: 12
+process.pid:
+  key: process.pid
+  name: pid
+  scope: process
+  type: int64
+  deprecated: false
+  tag: 13
+process.ppid:
+  key: process.ppid
+  name: ppid
+  scope: process
+  type: int64
+  deprecated: false
+  tag: 14
+process.start:
+  key: process.start
+  name: start
+  scope: process
+  type: string
+  deprecated: false
+  tag: 15
+process.thread:
+  key: process.thread
+  name: thread
+  scope: process
+  type: Thread
+  deprecated: false
+  tag: 16
+process.thread.id:
+  key: process.thread.id
+  name: id
+  scope: process.thread
+  type: int64
+  deprecated: false
+  tag: 1
+process.thread.name:
+  key: process.thread.name
+  name: name
+  scope: process.thread
+  type: string
+  deprecated: false
+  tag: 2
+process.title:
+  key: process.title
+  name: title
+  scope: process
+  type: string
+  deprecated: false
+  tag: 17
+process.uptime:
+  key: process.uptime
+  name: uptime
+  scope: process
+  type: int64
+  deprecated: false
+  tag: 18
+process.working_directory:
+  key: process.working_directory
+  name: working_directory
+  scope: process
+  type: string
+  deprecated: false
+  tag: 19
+registry:
+  key: registry
+  name: registry
+  scope: ''
+  type: Registry
+  deprecated: false
+  tag: 23
+registry.data:
+  key: registry.data
+  name: data
+  scope: registry
+  type: Data
+  deprecated: false
+  tag: 1
+registry.data.bytes:
+  key: registry.data.bytes
+  name: bytes
+  scope: registry.data
+  type: string
+  deprecated: false
+  tag: 1
+registry.data.strings:
+  key: registry.data.strings
+  name: strings
+  scope: registry.data
+  type: repeated string
+  deprecated: false
+  tag: 2
+registry.data.type:
+  key: registry.data.type
+  name: type
+  scope: registry.data
+  type: string
+  deprecated: false
+  tag: 3
+registry.hive:
+  key: registry.hive
+  name: hive
+  scope: registry
+  type: string
+  deprecated: false
+  tag: 2
+registry.key:
+  key: registry.key
+  name: key
+  scope: registry
+  type: string
+  deprecated: false
+  tag: 3
+registry.path:
+  key: registry.path
+  name: path
+  scope: registry
+  type: string
+  deprecated: false
+  tag: 4
+registry.value:
+  key: registry.value
+  name: value
+  scope: registry
+  type: string
+  deprecated: false
+  tag: 5
+related:
+  key: related
+  name: related
+  scope: ''
+  type: Related
+  deprecated: false
+  tag: 24
+related.hash:
+  key: related.hash
+  name: hash
+  scope: related
+  type: repeated string
+  deprecated: false
+  tag: 1
+related.ip:
+  key: related.ip
+  name: ip
+  scope: related
+  type: repeated string
+  deprecated: false
+  tag: 2
+related.user:
+  key: related.user
+  name: user
+  scope: related
+  type: repeated string
+  deprecated: false
+  tag: 3
+rule:
+  key: rule
+  name: rule
+  scope: ''
+  type: Rule
+  deprecated: false
+  tag: 25
+rule.author:
+  key: rule.author
+  name: author
+  scope: rule
+  type: repeated string
+  deprecated: false
+  tag: 1
+rule.category:
+  key: rule.category
+  name: category
+  scope: rule
+  type: string
+  deprecated: false
+  tag: 2
+rule.description:
+  key: rule.description
+  name: description
+  scope: rule
+  type: string
+  deprecated: false
+  tag: 3
+rule.id:
+  key: rule.id
+  name: id
+  scope: rule
+  type: string
+  deprecated: false
+  tag: 4
+rule.license:
+  key: rule.license
+  name: license
+  scope: rule
+  type: string
+  deprecated: false
+  tag: 5
+rule.name:
+  key: rule.name
+  name: name
+  scope: rule
+  type: string
+  deprecated: false
+  tag: 6
+rule.reference:
+  key: rule.reference
+  name: reference
+  scope: rule
+  type: string
+  deprecated: false
+  tag: 7
+rule.ruleset:
+  key: rule.ruleset
+  name: ruleset
+  scope: rule
+  type: string
+  deprecated: false
+  tag: 8
+rule.uuid:
+  key: rule.uuid
+  name: uuid
+  scope: rule
+  type: string
+  deprecated: false
+  tag: 9
+rule.version:
+  key: rule.version
+  name: version
+  scope: rule
+  type: string
+  deprecated: false
+  tag: 10
+server:
+  key: server
+  name: server
+  scope: ''
+  type: Server
+  deprecated: false
+  tag: 26
+server.address:
+  key: server.address
+  name: address
+  scope: server
+  type: string
+  deprecated: false
+  tag: 1
+server.as:
+  key: server.as
+  name: as
+  scope: server
+  type: As
+  deprecated: false
+  tag: 2
+server.as.number:
+  key: server.as.number
+  name: number
+  scope: server.as
+  type: int64
+  deprecated: false
+  tag: 1
+server.as.organization:
+  key: server.as.organization
+  name: organization
+  scope: server.as
+  type: Organization
+  deprecated: false
+  tag: 2
+server.as.organization.name:
+  key: server.as.organization.name
+  name: name
+  scope: server.as.organization
+  type: string
+  deprecated: false
+  tag: 1
+server.bytes:
+  key: server.bytes
+  name: bytes
+  scope: server
+  type: int64
+  deprecated: false
+  tag: 3
+server.domain:
+  key: server.domain
+  name: domain
+  scope: server
+  type: string
+  deprecated: false
+  tag: 4
+server.geo:
+  key: server.geo
+  name: geo
+  scope: server
+  type: Geo
+  deprecated: false
+  tag: 5
+server.geo.city_name:
+  key: server.geo.city_name
+  name: city_name
+  scope: server.geo
+  type: string
+  deprecated: false
+  tag: 1
+server.geo.continent_name:
+  key: server.geo.continent_name
+  name: continent_name
+  scope: server.geo
+  type: string
+  deprecated: false
+  tag: 2
+server.geo.country_iso_code:
+  key: server.geo.country_iso_code
+  name: country_iso_code
+  scope: server.geo
+  type: string
+  deprecated: false
+  tag: 3
+server.geo.country_name:
+  key: server.geo.country_name
+  name: country_name
+  scope: server.geo
+  type: string
+  deprecated: false
+  tag: 4
+server.geo.location:
+  key: server.geo.location
+  name: location
+  scope: server.geo
+  type: string
+  deprecated: false
+  tag: 5
+server.geo.name:
+  key: server.geo.name
+  name: name
+  scope: server.geo
+  type: string
+  deprecated: false
+  tag: 6
+server.geo.region_iso_code:
+  key: server.geo.region_iso_code
+  name: region_iso_code
+  scope: server.geo
+  type: string
+  deprecated: false
+  tag: 7
+server.geo.region_name:
+  key: server.geo.region_name
+  name: region_name
+  scope: server.geo
+  type: string
+  deprecated: false
+  tag: 8
+server.ip:
+  key: server.ip
+  name: ip
+  scope: server
+  type: string
+  deprecated: false
+  tag: 6
+server.mac:
+  key: server.mac
+  name: mac
+  scope: server
+  type: string
+  deprecated: false
+  tag: 7
+server.nat:
+  key: server.nat
+  name: nat
+  scope: server
+  type: Nat
+  deprecated: false
+  tag: 8
+server.nat.ip:
+  key: server.nat.ip
+  name: ip
+  scope: server.nat
+  type: string
+  deprecated: false
+  tag: 1
+server.nat.port:
+  key: server.nat.port
+  name: port
+  scope: server.nat
+  type: int64
+  deprecated: false
+  tag: 2
+server.packets:
+  key: server.packets
+  name: packets
+  scope: server
+  type: int64
+  deprecated: false
+  tag: 9
+server.port:
+  key: server.port
+  name: port
+  scope: server
+  type: int64
+  deprecated: false
+  tag: 10
+server.registered_domain:
+  key: server.registered_domain
+  name: registered_domain
+  scope: server
+  type: string
+  deprecated: false
+  tag: 11
+server.top_level_domain:
+  key: server.top_level_domain
+  name: top_level_domain
+  scope: server
+  type: string
+  deprecated: false
+  tag: 12
+server.user:
+  key: server.user
+  name: user
+  scope: server
+  type: User
+  deprecated: false
+  tag: 13
+server.user.domain:
+  key: server.user.domain
+  name: domain
+  scope: server.user
+  type: string
+  deprecated: false
+  tag: 1
+server.user.email:
+  key: server.user.email
+  name: email
+  scope: server.user
+  type: string
+  deprecated: false
+  tag: 2
+server.user.full_name:
+  key: server.user.full_name
+  name: full_name
+  scope: server.user
+  type: string
+  deprecated: false
+  tag: 3
+server.user.group:
+  key: server.user.group
+  name: group
+  scope: server.user
+  type: Group
+  deprecated: false
+  tag: 4
+server.user.group.domain:
+  key: server.user.group.domain
+  name: domain
+  scope: server.user.group
+  type: string
+  deprecated: false
+  tag: 1
+server.user.group.id:
+  key: server.user.group.id
+  name: id
+  scope: server.user.group
+  type: string
+  deprecated: false
+  tag: 2
+server.user.group.name:
+  key: server.user.group.name
+  name: name
+  scope: server.user.group
+  type: string
+  deprecated: false
+  tag: 3
+server.user.hash:
+  key: server.user.hash
+  name: hash
+  scope: server.user
+  type: string
+  deprecated: false
+  tag: 5
+server.user.id:
+  key: server.user.id
+  name: id
+  scope: server.user
+  type: string
+  deprecated: false
+  tag: 6
+server.user.name:
+  key: server.user.name
+  name: name
+  scope: server.user
+  type: string
+  deprecated: false
+  tag: 7
+service:
+  key: service
+  name: service
+  scope: ''
+  type: Service
+  deprecated: false
+  tag: 27
+service.ephemeral_id:
+  key: service.ephemeral_id
+  name: ephemeral_id
+  scope: service
+  type: string
+  deprecated: false
+  tag: 1
+service.id:
+  key: service.id
+  name: id
+  scope: service
+  type: string
+  deprecated: false
+  tag: 2
+service.name:
+  key: service.name
+  name: name
+  scope: service
+  type: string
+  deprecated: false
+  tag: 3
+service.node:
+  key: service.node
+  name: node
+  scope: service
+  type: Node
+  deprecated: false
+  tag: 4
+service.node.name:
+  key: service.node.name
+  name: name
+  scope: service.node
+  type: string
+  deprecated: false
+  tag: 1
+service.state:
+  key: service.state
+  name: state
+  scope: service
+  type: string
+  deprecated: false
+  tag: 5
+service.type:
+  key: service.type
+  name: type
+  scope: service
+  type: string
+  deprecated: false
+  tag: 6
+service.version:
+  key: service.version
+  name: version
+  scope: service
+  type: string
+  deprecated: false
+  tag: 7
+source:
+  key: source
+  name: source
+  scope: ''
+  type: Source
+  deprecated: false
+  tag: 28
+source.address:
+  key: source.address
+  name: address
+  scope: source
+  type: string
+  deprecated: false
+  tag: 1
+source.as:
+  key: source.as
+  name: as
+  scope: source
+  type: As
+  deprecated: false
+  tag: 2
+source.as.number:
+  key: source.as.number
+  name: number
+  scope: source.as
+  type: int64
+  deprecated: false
+  tag: 1
+source.as.organization:
+  key: source.as.organization
+  name: organization
+  scope: source.as
+  type: Organization
+  deprecated: false
+  tag: 2
+source.as.organization.name:
+  key: source.as.organization.name
+  name: name
+  scope: source.as.organization
+  type: string
+  deprecated: false
+  tag: 1
+source.bytes:
+  key: source.bytes
+  name: bytes
+  scope: source
+  type: int64
+  deprecated: false
+  tag: 3
+source.domain:
+  key: source.domain
+  name: domain
+  scope: source
+  type: string
+  deprecated: false
+  tag: 4
+source.geo:
+  key: source.geo
+  name: geo
+  scope: source
+  type: Geo
+  deprecated: false
+  tag: 5
+source.geo.city_name:
+  key: source.geo.city_name
+  name: city_name
+  scope: source.geo
+  type: string
+  deprecated: false
+  tag: 1
+source.geo.continent_name:
+  key: source.geo.continent_name
+  name: continent_name
+  scope: source.geo
+  type: string
+  deprecated: false
+  tag: 2
+source.geo.country_iso_code:
+  key: source.geo.country_iso_code
+  name: country_iso_code
+  scope: source.geo
+  type: string
+  deprecated: false
+  tag: 3
+source.geo.country_name:
+  key: source.geo.country_name
+  name: country_name
+  scope: source.geo
+  type: string
+  deprecated: false
+  tag: 4
+source.geo.location:
+  key: source.geo.location
+  name: location
+  scope: source.geo
+  type: string
+  deprecated: false
+  tag: 5
+source.geo.name:
+  key: source.geo.name
+  name: name
+  scope: source.geo
+  type: string
+  deprecated: false
+  tag: 6
+source.geo.region_iso_code:
+  key: source.geo.region_iso_code
+  name: region_iso_code
+  scope: source.geo
+  type: string
+  deprecated: false
+  tag: 7
+source.geo.region_name:
+  key: source.geo.region_name
+  name: region_name
+  scope: source.geo
+  type: string
+  deprecated: false
+  tag: 8
+source.ip:
+  key: source.ip
+  name: ip
+  scope: source
+  type: string
+  deprecated: false
+  tag: 6
+source.mac:
+  key: source.mac
+  name: mac
+  scope: source
+  type: string
+  deprecated: false
+  tag: 7
+source.nat:
+  key: source.nat
+  name: nat
+  scope: source
+  type: Nat
+  deprecated: false
+  tag: 8
+source.nat.ip:
+  key: source.nat.ip
+  name: ip
+  scope: source.nat
+  type: string
+  deprecated: false
+  tag: 1
+source.nat.port:
+  key: source.nat.port
+  name: port
+  scope: source.nat
+  type: int64
+  deprecated: false
+  tag: 2
+source.packets:
+  key: source.packets
+  name: packets
+  scope: source
+  type: int64
+  deprecated: false
+  tag: 9
+source.port:
+  key: source.port
+  name: port
+  scope: source
+  type: int64
+  deprecated: false
+  tag: 10
+source.registered_domain:
+  key: source.registered_domain
+  name: registered_domain
+  scope: source
+  type: string
+  deprecated: false
+  tag: 11
+source.top_level_domain:
+  key: source.top_level_domain
+  name: top_level_domain
+  scope: source
+  type: string
+  deprecated: false
+  tag: 12
+source.user:
+  key: source.user
+  name: user
+  scope: source
+  type: User
+  deprecated: false
+  tag: 13
+source.user.domain:
+  key: source.user.domain
+  name: domain
+  scope: source.user
+  type: string
+  deprecated: false
+  tag: 1
+source.user.email:
+  key: source.user.email
+  name: email
+  scope: source.user
+  type: string
+  deprecated: false
+  tag: 2
+source.user.full_name:
+  key: source.user.full_name
+  name: full_name
+  scope: source.user
+  type: string
+  deprecated: false
+  tag: 3
+source.user.group:
+  key: source.user.group
+  name: group
+  scope: source.user
+  type: Group
+  deprecated: false
+  tag: 4
+source.user.group.domain:
+  key: source.user.group.domain
+  name: domain
+  scope: source.user.group
+  type: string
+  deprecated: false
+  tag: 1
+source.user.group.id:
+  key: source.user.group.id
+  name: id
+  scope: source.user.group
+  type: string
+  deprecated: false
+  tag: 2
+source.user.group.name:
+  key: source.user.group.name
+  name: name
+  scope: source.user.group
+  type: string
+  deprecated: false
+  tag: 3
+source.user.hash:
+  key: source.user.hash
+  name: hash
+  scope: source.user
+  type: string
+  deprecated: false
+  tag: 5
+source.user.id:
+  key: source.user.id
+  name: id
+  scope: source.user
+  type: string
+  deprecated: false
+  tag: 6
+source.user.name:
+  key: source.user.name
+  name: name
+  scope: source.user
+  type: string
+  deprecated: false
+  tag: 7
+tags:
+  key: tags
+  name: tags
+  scope: ''
+  type: repeated string
+  deprecated: false
+  tag: 29
+threat:
+  key: threat
+  name: threat
+  scope: ''
+  type: Threat
+  deprecated: false
+  tag: 30
+threat.framework:
+  key: threat.framework
+  name: framework
+  scope: threat
+  type: string
+  deprecated: false
+  tag: 1
+threat.tactic:
+  key: threat.tactic
+  name: tactic
+  scope: threat
+  type: Tactic
+  deprecated: false
+  tag: 2
+threat.tactic.id:
+  key: threat.tactic.id
+  name: id
+  scope: threat.tactic
+  type: repeated string
+  deprecated: false
+  tag: 1
+threat.tactic.name:
+  key: threat.tactic.name
+  name: name
+  scope: threat.tactic
+  type: repeated string
+  deprecated: false
+  tag: 2
+threat.tactic.reference:
+  key: threat.tactic.reference
+  name: reference
+  scope: threat.tactic
+  type: repeated string
+  deprecated: false
+  tag: 3
+threat.technique:
+  key: threat.technique
+  name: technique
+  scope: threat
+  type: Technique
+  deprecated: false
+  tag: 3
+threat.technique.id:
+  key: threat.technique.id
+  name: id
+  scope: threat.technique
+  type: repeated string
+  deprecated: false
+  tag: 1
+threat.technique.name:
+  key: threat.technique.name
+  name: name
+  scope: threat.technique
+  type: repeated string
+  deprecated: false
+  tag: 2
+threat.technique.reference:
+  key: threat.technique.reference
+  name: reference
+  scope: threat.technique
+  type: repeated string
+  deprecated: false
+  tag: 3
+timestamp:
+  key: timestamp
+  name: timestamp
+  scope: ''
+  type: string
+  deprecated: false
+  tag: 31
+tls:
+  key: tls
+  name: tls
+  scope: ''
+  type: Tls
+  deprecated: false
+  tag: 32
+tls.cipher:
+  key: tls.cipher
+  name: cipher
+  scope: tls
+  type: string
+  deprecated: false
+  tag: 1
+tls.client:
+  key: tls.client
+  name: client
+  scope: tls
+  type: Client
+  deprecated: false
+  tag: 2
+tls.client.certificate:
+  key: tls.client.certificate
+  name: certificate
+  scope: tls.client
+  type: string
+  deprecated: false
+  tag: 1
+tls.client.certificate_chain:
+  key: tls.client.certificate_chain
+  name: certificate_chain
+  scope: tls.client
+  type: repeated string
+  deprecated: false
+  tag: 2
+tls.client.hash:
+  key: tls.client.hash
+  name: hash
+  scope: tls.client
+  type: Hash
+  deprecated: false
+  tag: 3
+tls.client.hash.md5:
+  key: tls.client.hash.md5
+  name: md5
+  scope: tls.client.hash
+  type: string
+  deprecated: false
+  tag: 1
+tls.client.hash.sha1:
+  key: tls.client.hash.sha1
+  name: sha1
+  scope: tls.client.hash
+  type: string
+  deprecated: false
+  tag: 2
+tls.client.hash.sha256:
+  key: tls.client.hash.sha256
+  name: sha256
+  scope: tls.client.hash
+  type: string
+  deprecated: false
+  tag: 3
+tls.client.issuer:
+  key: tls.client.issuer
+  name: issuer
+  scope: tls.client
+  type: string
+  deprecated: false
+  tag: 4
+tls.client.ja3:
+  key: tls.client.ja3
+  name: ja3
+  scope: tls.client
+  type: string
+  deprecated: false
+  tag: 5
+tls.client.not_after:
+  key: tls.client.not_after
+  name: not_after
+  scope: tls.client
+  type: string
+  deprecated: false
+  tag: 6
+tls.client.not_before:
+  key: tls.client.not_before
+  name: not_before
+  scope: tls.client
+  type: string
+  deprecated: false
+  tag: 7
+tls.client.server_name:
+  key: tls.client.server_name
+  name: server_name
+  scope: tls.client
+  type: string
+  deprecated: false
+  tag: 8
+tls.client.subject:
+  key: tls.client.subject
+  name: subject
+  scope: tls.client
+  type: string
+  deprecated: false
+  tag: 9
+tls.client.supported_ciphers:
+  key: tls.client.supported_ciphers
+  name: supported_ciphers
+  scope: tls.client
+  type: repeated string
+  deprecated: false
+  tag: 10
+tls.curve:
+  key: tls.curve
+  name: curve
+  scope: tls
+  type: string
+  deprecated: false
+  tag: 3
+tls.established:
+  key: tls.established
+  name: established
+  scope: tls
+  type: bool
+  deprecated: false
+  tag: 4
+tls.next_protocol:
+  key: tls.next_protocol
+  name: next_protocol
+  scope: tls
+  type: string
+  deprecated: false
+  tag: 5
+tls.resumed:
+  key: tls.resumed
+  name: resumed
+  scope: tls
+  type: bool
+  deprecated: false
+  tag: 6
+tls.server:
+  key: tls.server
+  name: server
+  scope: tls
+  type: Server
+  deprecated: false
+  tag: 7
+tls.server.certificate:
+  key: tls.server.certificate
+  name: certificate
+  scope: tls.server
+  type: string
+  deprecated: false
+  tag: 1
+tls.server.certificate_chain:
+  key: tls.server.certificate_chain
+  name: certificate_chain
+  scope: tls.server
+  type: repeated string
+  deprecated: false
+  tag: 2
+tls.server.hash:
+  key: tls.server.hash
+  name: hash
+  scope: tls.server
+  type: Hash
+  deprecated: false
+  tag: 3
+tls.server.hash.md5:
+  key: tls.server.hash.md5
+  name: md5
+  scope: tls.server.hash
+  type: string
+  deprecated: false
+  tag: 1
+tls.server.hash.sha1:
+  key: tls.server.hash.sha1
+  name: sha1
+  scope: tls.server.hash
+  type: string
+  deprecated: false
+  tag: 2
+tls.server.hash.sha256:
+  key: tls.server.hash.sha256
+  name: sha256
+  scope: tls.server.hash
+  type: string
+  deprecated: false
+  tag: 3
+tls.server.issuer:
+  key: tls.server.issuer
+  name: issuer
+  scope: tls.server
+  type: string
+  deprecated: false
+  tag: 4
+tls.server.ja3s:
+  key: tls.server.ja3s
+  name: ja3s
+  scope: tls.server
+  type: string
+  deprecated: false
+  tag: 5
+tls.server.not_after:
+  key: tls.server.not_after
+  name: not_after
+  scope: tls.server
+  type: string
+  deprecated: false
+  tag: 6
+tls.server.not_before:
+  key: tls.server.not_before
+  name: not_before
+  scope: tls.server
+  type: string
+  deprecated: false
+  tag: 7
+tls.server.subject:
+  key: tls.server.subject
+  name: subject
+  scope: tls.server
+  type: string
+  deprecated: false
+  tag: 8
+tls.version:
+  key: tls.version
+  name: version
+  scope: tls
+  type: string
+  deprecated: false
+  tag: 8
+tls.version_protocol:
+  key: tls.version_protocol
+  name: version_protocol
+  scope: tls
+  type: string
+  deprecated: false
+  tag: 9
+trace:
+  key: trace
+  name: trace
+  scope: ''
+  type: Trace
+  deprecated: false
+  tag: 33
+trace.id:
+  key: trace.id
+  name: id
+  scope: trace
+  type: string
+  deprecated: false
+  tag: 1
+transaction:
+  key: transaction
+  name: transaction
+  scope: ''
+  type: Transaction
+  deprecated: false
+  tag: 34
+transaction.id:
+  key: transaction.id
+  name: id
+  scope: transaction
+  type: string
+  deprecated: false
+  tag: 1
+url:
+  key: url
+  name: url
+  scope: ''
+  type: Url
+  deprecated: false
+  tag: 35
+url.domain:
+  key: url.domain
+  name: domain
+  scope: url
+  type: string
+  deprecated: false
+  tag: 1
+url.extension:
+  key: url.extension
+  name: extension
+  scope: url
+  type: string
+  deprecated: false
+  tag: 2
+url.fragment:
+  key: url.fragment
+  name: fragment
+  scope: url
+  type: string
+  deprecated: false
+  tag: 3
+url.full:
+  key: url.full
+  name: full
+  scope: url
+  type: string
+  deprecated: false
+  tag: 4
+url.original:
+  key: url.original
+  name: original
+  scope: url
+  type: string
+  deprecated: false
+  tag: 5
+url.password:
+  key: url.password
+  name: password
+  scope: url
+  type: string
+  deprecated: false
+  tag: 6
+url.path:
+  key: url.path
+  name: path
+  scope: url
+  type: string
+  deprecated: false
+  tag: 7
+url.port:
+  key: url.port
+  name: port
+  scope: url
+  type: int64
+  deprecated: false
+  tag: 8
+url.query:
+  key: url.query
+  name: query
+  scope: url
+  type: string
+  deprecated: false
+  tag: 9
+url.registered_domain:
+  key: url.registered_domain
+  name: registered_domain
+  scope: url
+  type: string
+  deprecated: false
+  tag: 10
+url.scheme:
+  key: url.scheme
+  name: scheme
+  scope: url
+  type: string
+  deprecated: false
+  tag: 11
+url.top_level_domain:
+  key: url.top_level_domain
+  name: top_level_domain
+  scope: url
+  type: string
+  deprecated: false
+  tag: 12
+url.username:
+  key: url.username
+  name: username
+  scope: url
+  type: string
+  deprecated: false
+  tag: 13
+user:
+  key: user
+  name: user
+  scope: ''
+  type: User
+  deprecated: false
+  tag: 36
+user.domain:
+  key: user.domain
+  name: domain
+  scope: user
+  type: string
+  deprecated: false
+  tag: 1
+user.email:
+  key: user.email
+  name: email
+  scope: user
+  type: string
+  deprecated: false
+  tag: 2
+user.full_name:
+  key: user.full_name
+  name: full_name
+  scope: user
+  type: string
+  deprecated: false
+  tag: 3
+user.group:
+  key: user.group
+  name: group
+  scope: user
+  type: Group
+  deprecated: false
+  tag: 4
+user.group.domain:
+  key: user.group.domain
+  name: domain
+  scope: user.group
+  type: string
+  deprecated: false
+  tag: 1
+user.group.id:
+  key: user.group.id
+  name: id
+  scope: user.group
+  type: string
+  deprecated: false
+  tag: 2
+user.group.name:
+  key: user.group.name
+  name: name
+  scope: user.group
+  type: string
+  deprecated: false
+  tag: 3
+user.hash:
+  key: user.hash
+  name: hash
+  scope: user
+  type: string
+  deprecated: false
+  tag: 5
+user.id:
+  key: user.id
+  name: id
+  scope: user
+  type: string
+  deprecated: false
+  tag: 6
+user.name:
+  key: user.name
+  name: name
+  scope: user
+  type: string
+  deprecated: false
+  tag: 7
+user_agent:
+  key: user_agent
+  name: user_agent
+  scope: ''
+  type: UserAgent
+  deprecated: false
+  tag: 37
+user_agent.device:
+  key: user_agent.device
+  name: device
+  scope: user_agent
+  type: Device
+  deprecated: false
+  tag: 1
+user_agent.device.name:
+  key: user_agent.device.name
+  name: name
+  scope: user_agent.device
+  type: string
+  deprecated: false
+  tag: 1
+user_agent.name:
+  key: user_agent.name
+  name: name
+  scope: user_agent
+  type: string
+  deprecated: false
+  tag: 2
+user_agent.original:
+  key: user_agent.original
+  name: original
+  scope: user_agent
+  type: string
+  deprecated: false
+  tag: 3
+user_agent.os:
+  key: user_agent.os
+  name: os
+  scope: user_agent
+  type: Os
+  deprecated: false
+  tag: 4
+user_agent.os.family:
+  key: user_agent.os.family
+  name: family
+  scope: user_agent.os
+  type: string
+  deprecated: false
+  tag: 1
+user_agent.os.full:
+  key: user_agent.os.full
+  name: full
+  scope: user_agent.os
+  type: string
+  deprecated: false
+  tag: 2
+user_agent.os.kernel:
+  key: user_agent.os.kernel
+  name: kernel
+  scope: user_agent.os
+  type: string
+  deprecated: false
+  tag: 3
+user_agent.os.name:
+  key: user_agent.os.name
+  name: name
+  scope: user_agent.os
+  type: string
+  deprecated: false
+  tag: 4
+user_agent.os.platform:
+  key: user_agent.os.platform
+  name: platform
+  scope: user_agent.os
+  type: string
+  deprecated: false
+  tag: 5
+user_agent.os.version:
+  key: user_agent.os.version
+  name: version
+  scope: user_agent.os
+  type: string
+  deprecated: false
+  tag: 6
+user_agent.version:
+  key: user_agent.version
+  name: version
+  scope: user_agent
+  type: string
+  deprecated: false
+  tag: 5
+vulnerability:
+  key: vulnerability
+  name: vulnerability
+  scope: ''
+  type: Vulnerability
+  deprecated: false
+  tag: 38
+vulnerability.category:
+  key: vulnerability.category
+  name: category
+  scope: vulnerability
+  type: repeated string
+  deprecated: false
+  tag: 1
+vulnerability.classification:
+  key: vulnerability.classification
+  name: classification
+  scope: vulnerability
+  type: string
+  deprecated: false
+  tag: 2
+vulnerability.description:
+  key: vulnerability.description
+  name: description
+  scope: vulnerability
+  type: string
+  deprecated: false
+  tag: 3
+vulnerability.enumeration:
+  key: vulnerability.enumeration
+  name: enumeration
+  scope: vulnerability
+  type: string
+  deprecated: false
+  tag: 4
+vulnerability.id:
+  key: vulnerability.id
+  name: id
+  scope: vulnerability
+  type: string
+  deprecated: false
+  tag: 5
+vulnerability.reference:
+  key: vulnerability.reference
+  name: reference
+  scope: vulnerability
+  type: string
+  deprecated: false
+  tag: 6
+vulnerability.report_id:
+  key: vulnerability.report_id
+  name: report_id
+  scope: vulnerability
+  type: string
+  deprecated: false
+  tag: 7
+vulnerability.scanner:
+  key: vulnerability.scanner
+  name: scanner
+  scope: vulnerability
+  type: Scanner
+  deprecated: false
+  tag: 8
+vulnerability.scanner.vendor:
+  key: vulnerability.scanner.vendor
+  name: vendor
+  scope: vulnerability.scanner
+  type: string
+  deprecated: false
+  tag: 1
+vulnerability.score:
+  key: vulnerability.score
+  name: score
+  scope: vulnerability
+  type: Score
+  deprecated: false
+  tag: 9
+vulnerability.score.base:
+  key: vulnerability.score.base
+  name: base
+  scope: vulnerability.score
+  type: float
+  deprecated: false
+  tag: 1
+vulnerability.score.environmental:
+  key: vulnerability.score.environmental
+  name: environmental
+  scope: vulnerability.score
+  type: float
+  deprecated: false
+  tag: 2
+vulnerability.score.temporal:
+  key: vulnerability.score.temporal
+  name: temporal
+  scope: vulnerability.score
+  type: float
+  deprecated: false
+  tag: 3
+vulnerability.score.version:
+  key: vulnerability.score.version
+  name: version
+  scope: vulnerability.score
+  type: string
+  deprecated: false
+  tag: 4
+vulnerability.severity:
+  key: vulnerability.severity
+  name: severity
+  scope: vulnerability
+  type: string
+  deprecated: false
+  tag: 10
