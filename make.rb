@@ -120,15 +120,6 @@ class ProtobufDefinitionBuilder
       ecs_flat["timestamp"] = timestamp
     end
 
-    # remove parent fields. these will be inferred later
-    ecs_flat.each_key do |key|
-      segments = key.split(".")
-      if segments.size > 1
-        parent = segments[0..-2].join(".")
-        ecs_flat.delete(parent) if ecs_flat.key?(parent)
-      end
-    end
-
     # build a hash of fields with protobuf types
     built_fields = ecs_flat.keys.inject({}) do |built_fields, key|
       field     = ecs_flat.fetch(key)
@@ -136,22 +127,30 @@ class ProtobufDefinitionBuilder
       name      = segments.pop()
       scope     = segments.join(".")
       type      = FIELD_TYPE_TO_PROTOBUF_TYPE.fetch(field.fetch("type"))
-      normalize = field.fetch("normalize")
+      normalize = field.fetch("normalize", [])
 
       unless VALID_NORMALIZE_SETTINGS.include?(normalize)
         abort("Don't know how to handle #{name}'s normalize setting: #{normalize}")
       end
 
       while segments.any? do
-        parent_key   = segments.join(".")
-        parent_name  = segments.pop()
-        parent_scope = segments.join(".")
+        parent_key       = segments.join(".")
+        parent_name      = segments.pop()
+        parent_scope     = segments.join(".")
+        parent_normalize = ecs_flat.dig(parent_key, "normalize") || []
+        parent_type      = camelize(parent_name)
+
+        unless VALID_NORMALIZE_SETTINGS.include?(parent_normalize)
+          abort("Don't know how to handle #{name}'s normalize setting: #{parent_normalize.inspect}")
+        end
+
+        parent_type = "repeated #{parent_type}" if parent_normalize == ["array"]
 
         built_fields[parent_key] = {
           "key"        => parent_key,
           "name"       => parent_name,
           "scope"      => parent_scope,
-          "type"       => camelize(parent_name),
+          "type"       => parent_type,
           "deprecated" => false,
         }
       end
@@ -166,11 +165,13 @@ class ProtobufDefinitionBuilder
         "deprecated" => false,
       }
 
-      if type.start_with?("repeated map")
+      built_fields
+    end
+
+    built_fields.each do |_, field|
+      if field["type"].start_with?("repeated map")
         abort "repeated map is not a valid protobuf type for #{key}"
       end
-
-      built_fields
     end
 
     sort_fields(built_fields)

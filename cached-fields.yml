@@ -899,7 +899,7 @@ dns.answers:
   key: dns.answers
   name: answers
   scope: dns
-  type: Answers
+  type: repeated Answers
   deprecated: false
   tag: 1
 dns.answers.class:
@@ -1546,6 +1546,195 @@ file.uid:
   type: string
   deprecated: false
   tag: 24
+file.x509:
+  key: file.x509
+  name: x509
+  scope: file
+  type: X509
+  deprecated: false
+  tag: 25
+file.x509.alternative_names:
+  key: file.x509.alternative_names
+  name: alternative_names
+  scope: file.x509
+  type: repeated string
+  deprecated: false
+  tag: 1
+file.x509.issuer:
+  key: file.x509.issuer
+  name: issuer
+  scope: file.x509
+  type: Issuer
+  deprecated: false
+  tag: 2
+file.x509.issuer.common_name:
+  key: file.x509.issuer.common_name
+  name: common_name
+  scope: file.x509.issuer
+  type: repeated string
+  deprecated: false
+  tag: 1
+file.x509.issuer.country:
+  key: file.x509.issuer.country
+  name: country
+  scope: file.x509.issuer
+  type: repeated string
+  deprecated: false
+  tag: 2
+file.x509.issuer.distinguished_name:
+  key: file.x509.issuer.distinguished_name
+  name: distinguished_name
+  scope: file.x509.issuer
+  type: string
+  deprecated: false
+  tag: 3
+file.x509.issuer.locality:
+  key: file.x509.issuer.locality
+  name: locality
+  scope: file.x509.issuer
+  type: repeated string
+  deprecated: false
+  tag: 4
+file.x509.issuer.organization:
+  key: file.x509.issuer.organization
+  name: organization
+  scope: file.x509.issuer
+  type: repeated string
+  deprecated: false
+  tag: 5
+file.x509.issuer.organizational_unit:
+  key: file.x509.issuer.organizational_unit
+  name: organizational_unit
+  scope: file.x509.issuer
+  type: repeated string
+  deprecated: false
+  tag: 6
+file.x509.issuer.state_or_province:
+  key: file.x509.issuer.state_or_province
+  name: state_or_province
+  scope: file.x509.issuer
+  type: repeated string
+  deprecated: false
+  tag: 7
+file.x509.not_after:
+  key: file.x509.not_after
+  name: not_after
+  scope: file.x509
+  type: string
+  deprecated: false
+  tag: 3
+file.x509.not_before:
+  key: file.x509.not_before
+  name: not_before
+  scope: file.x509
+  type: string
+  deprecated: false
+  tag: 4
+file.x509.public_key_algorithm:
+  key: file.x509.public_key_algorithm
+  name: public_key_algorithm
+  scope: file.x509
+  type: string
+  deprecated: false
+  tag: 5
+file.x509.public_key_curve:
+  key: file.x509.public_key_curve
+  name: public_key_curve
+  scope: file.x509
+  type: string
+  deprecated: false
+  tag: 6
+file.x509.public_key_exponent:
+  key: file.x509.public_key_exponent
+  name: public_key_exponent
+  scope: file.x509
+  type: int64
+  deprecated: false
+  tag: 7
+file.x509.public_key_size:
+  key: file.x509.public_key_size
+  name: public_key_size
+  scope: file.x509
+  type: int64
+  deprecated: false
+  tag: 8
+file.x509.serial_number:
+  key: file.x509.serial_number
+  name: serial_number
+  scope: file.x509
+  type: string
+  deprecated: false
+  tag: 9
+file.x509.signature_algorithm:
+  key: file.x509.signature_algorithm
+  name: signature_algorithm
+  scope: file.x509
+  type: string
+  deprecated: false
+  tag: 10
+file.x509.subject:
+  key: file.x509.subject
+  name: subject
+  scope: file.x509
+  type: Subject
+  deprecated: false
+  tag: 11
+file.x509.subject.common_name:
+  key: file.x509.subject.common_name
+  name: common_name
+  scope: file.x509.subject
+  type: repeated string
+  deprecated: false
+  tag: 1
+file.x509.subject.country:
+  key: file.x509.subject.country
+  name: country
+  scope: file.x509.subject
+  type: repeated string
+  deprecated: false
+  tag: 2
+file.x509.subject.distinguished_name:
+  key: file.x509.subject.distinguished_name
+  name: distinguished_name
+  scope: file.x509.subject
+  type: string
+  deprecated: false
+  tag: 3
+file.x509.subject.locality:
+  key: file.x509.subject.locality
+  name: locality
+  scope: file.x509.subject
+  type: repeated string
+  deprecated: false
+  tag: 4
+file.x509.subject.organization:
+  key: file.x509.subject.organization
+  name: organization
+  scope: file.x509.subject
+  type: repeated string
+  deprecated: false
+  tag: 5
+file.x509.subject.organizational_unit:
+  key: file.x509.subject.organizational_unit
+  name: organizational_unit
+  scope: file.x509.subject
+  type: repeated string
+  deprecated: false
+  tag: 6
+file.x509.subject.state_or_province:
+  key: file.x509.subject.state_or_province
+  name: state_or_province
+  scope: file.x509.subject
+  type: repeated string
+  deprecated: false
+  tag: 7
+file.x509.version_number:
+  key: file.x509.version_number
+  name: version_number
+  scope: file.x509
+  type: string
+  deprecated: false
+  tag: 12
 group:
   key: group
   name: group
@@ -4052,6 +4241,195 @@ tls.client.supported_ciphers:
   type: repeated string
   deprecated: false
   tag: 10
+tls.client.x509:
+  key: tls.client.x509
+  name: x509
+  scope: tls.client
+  type: X509
+  deprecated: false
+  tag: 11
+tls.client.x509.alternative_names:
+  key: tls.client.x509.alternative_names
+  name: alternative_names
+  scope: tls.client.x509
+  type: repeated string
+  deprecated: false
+  tag: 1
+tls.client.x509.issuer:
+  key: tls.client.x509.issuer
+  name: issuer
+  scope: tls.client.x509
+  type: Issuer
+  deprecated: false
+  tag: 2
+tls.client.x509.issuer.common_name:
+  key: tls.client.x509.issuer.common_name
+  name: common_name
+  scope: tls.client.x509.issuer
+  type: repeated string
+  deprecated: false
+  tag: 1
+tls.client.x509.issuer.country:
+  key: tls.client.x509.issuer.country
+  name: country
+  scope: tls.client.x509.issuer
+  type: repeated string
+  deprecated: false
+  tag: 2
+tls.client.x509.issuer.distinguished_name:
+  key: tls.client.x509.issuer.distinguished_name
+  name: distinguished_name
+  scope: tls.client.x509.issuer
+  type: string
+  deprecated: false
+  tag: 3
+tls.client.x509.issuer.locality:
+  key: tls.client.x509.issuer.locality
+  name: locality
+  scope: tls.client.x509.issuer
+  type: repeated string
+  deprecated: false
+  tag: 4
+tls.client.x509.issuer.organization:
+  key: tls.client.x509.issuer.organization
+  name: organization
+  scope: tls.client.x509.issuer
+  type: repeated string
+  deprecated: false
+  tag: 5
+tls.client.x509.issuer.organizational_unit:
+  key: tls.client.x509.issuer.organizational_unit
+  name: organizational_unit
+  scope: tls.client.x509.issuer
+  type: repeated string
+  deprecated: false
+  tag: 6
+tls.client.x509.issuer.state_or_province:
+  key: tls.client.x509.issuer.state_or_province
+  name: state_or_province
+  scope: tls.client.x509.issuer
+  type: repeated string
+  deprecated: false
+  tag: 7
+tls.client.x509.not_after:
+  key: tls.client.x509.not_after
+  name: not_after
+  scope: tls.client.x509
+  type: string
+  deprecated: false
+  tag: 3
+tls.client.x509.not_before:
+  key: tls.client.x509.not_before
+  name: not_before
+  scope: tls.client.x509
+  type: string
+  deprecated: false
+  tag: 4
+tls.client.x509.public_key_algorithm:
+  key: tls.client.x509.public_key_algorithm
+  name: public_key_algorithm
+  scope: tls.client.x509
+  type: string
+  deprecated: false
+  tag: 5
+tls.client.x509.public_key_curve:
+  key: tls.client.x509.public_key_curve
+  name: public_key_curve
+  scope: tls.client.x509
+  type: string
+  deprecated: false
+  tag: 6
+tls.client.x509.public_key_exponent:
+  key: tls.client.x509.public_key_exponent
+  name: public_key_exponent
+  scope: tls.client.x509
+  type: int64
+  deprecated: false
+  tag: 7
+tls.client.x509.public_key_size:
+  key: tls.client.x509.public_key_size
+  name: public_key_size
+  scope: tls.client.x509
+  type: int64
+  deprecated: false
+  tag: 8
+tls.client.x509.serial_number:
+  key: tls.client.x509.serial_number
+  name: serial_number
+  scope: tls.client.x509
+  type: string
+  deprecated: false
+  tag: 9
+tls.client.x509.signature_algorithm:
+  key: tls.client.x509.signature_algorithm
+  name: signature_algorithm
+  scope: tls.client.x509
+  type: string
+  deprecated: false
+  tag: 10
+tls.client.x509.subject:
+  key: tls.client.x509.subject
+  name: subject
+  scope: tls.client.x509
+  type: Subject
+  deprecated: false
+  tag: 11
+tls.client.x509.subject.common_name:
+  key: tls.client.x509.subject.common_name
+  name: common_name
+  scope: tls.client.x509.subject
+  type: repeated string
+  deprecated: false
+  tag: 1
+tls.client.x509.subject.country:
+  key: tls.client.x509.subject.country
+  name: country
+  scope: tls.client.x509.subject
+  type: repeated string
+  deprecated: false
+  tag: 2
+tls.client.x509.subject.distinguished_name:
+  key: tls.client.x509.subject.distinguished_name
+  name: distinguished_name
+  scope: tls.client.x509.subject
+  type: string
+  deprecated: false
+  tag: 3
+tls.client.x509.subject.locality:
+  key: tls.client.x509.subject.locality
+  name: locality
+  scope: tls.client.x509.subject
+  type: repeated string
+  deprecated: false
+  tag: 4
+tls.client.x509.subject.organization:
+  key: tls.client.x509.subject.organization
+  name: organization
+  scope: tls.client.x509.subject
+  type: repeated string
+  deprecated: false
+  tag: 5
+tls.client.x509.subject.organizational_unit:
+  key: tls.client.x509.subject.organizational_unit
+  name: organizational_unit
+  scope: tls.client.x509.subject
+  type: repeated string
+  deprecated: false
+  tag: 6
+tls.client.x509.subject.state_or_province:
+  key: tls.client.x509.subject.state_or_province
+  name: state_or_province
+  scope: tls.client.x509.subject
+  type: repeated string
+  deprecated: false
+  tag: 7
+tls.client.x509.version_number:
+  key: tls.client.x509.version_number
+  name: version_number
+  scope: tls.client.x509
+  type: string
+  deprecated: false
+  tag: 12
 tls.curve:
   key: tls.curve
   name: curve
@@ -4164,6 +4542,195 @@ tls.server.subject:
   type: string
   deprecated: false
   tag: 8
+tls.server.x509:
+  key: tls.server.x509
+  name: x509
+  scope: tls.server
+  type: X509
+  deprecated: false
+  tag: 9
+tls.server.x509.alternative_names:
+  key: tls.server.x509.alternative_names
+  name: alternative_names
+  scope: tls.server.x509
+  type: repeated string
+  deprecated: false
+  tag: 1
+tls.server.x509.issuer:
+  key: tls.server.x509.issuer
+  name: issuer
+  scope: tls.server.x509
+  type: Issuer
+  deprecated: false
+  tag: 2
+tls.server.x509.issuer.common_name:
+  key: tls.server.x509.issuer.common_name
+  name: common_name
+  scope: tls.server.x509.issuer
+  type: repeated string
+  deprecated: false
+  tag: 1
+tls.server.x509.issuer.country:
+  key: tls.server.x509.issuer.country
+  name: country
+  scope: tls.server.x509.issuer
+  type: repeated string
+  deprecated: false
+  tag: 2
+tls.server.x509.issuer.distinguished_name:
+  key: tls.server.x509.issuer.distinguished_name
+  name: distinguished_name
+  scope: tls.server.x509.issuer
+  type: string
+  deprecated: false
+  tag: 3
+tls.server.x509.issuer.locality:
+  key: tls.server.x509.issuer.locality
+  name: locality
+  scope: tls.server.x509.issuer
+  type: repeated string
+  deprecated: false
+  tag: 4
+tls.server.x509.issuer.organization:
+  key: tls.server.x509.issuer.organization
+  name: organization
+  scope: tls.server.x509.issuer
+  type: repeated string
+  deprecated: false
+  tag: 5
+tls.server.x509.issuer.organizational_unit:
+  key: tls.server.x509.issuer.organizational_unit
+  name: organizational_unit
+  scope: tls.server.x509.issuer
+  type: repeated string
+  deprecated: false
+  tag: 6
+tls.server.x509.issuer.state_or_province:
+  key: tls.server.x509.issuer.state_or_province
+  name: state_or_province
+  scope: tls.server.x509.issuer
+  type: repeated string
+  deprecated: false
+  tag: 7
+tls.server.x509.not_after:
+  key: tls.server.x509.not_after
+  name: not_after
+  scope: tls.server.x509
+  type: string
+  deprecated: false
+  tag: 3
+tls.server.x509.not_before:
+  key: tls.server.x509.not_before
+  name: not_before
+  scope: tls.server.x509
+  type: string
+  deprecated: false
+  tag: 4
+tls.server.x509.public_key_algorithm:
+  key: tls.server.x509.public_key_algorithm
+  name: public_key_algorithm
+  scope: tls.server.x509
+  type: string
+  deprecated: false
+  tag: 5
+tls.server.x509.public_key_curve:
+  key: tls.server.x509.public_key_curve
+  name: public_key_curve
+  scope: tls.server.x509
+  type: string
+  deprecated: false
+  tag: 6
+tls.server.x509.public_key_exponent:
+  key: tls.server.x509.public_key_exponent
+  name: public_key_exponent
+  scope: tls.server.x509
+  type: int64
+  deprecated: false
+  tag: 7
+tls.server.x509.public_key_size:
+  key: tls.server.x509.public_key_size
+  name: public_key_size
+  scope: tls.server.x509
+  type: int64
+  deprecated: false
+  tag: 8
+tls.server.x509.serial_number:
+  key: tls.server.x509.serial_number
+  name: serial_number
+  scope: tls.server.x509
+  type: string
+  deprecated: false
+  tag: 9
+tls.server.x509.signature_algorithm:
+  key: tls.server.x509.signature_algorithm
+  name: signature_algorithm
+  scope: tls.server.x509
+  type: string
+  deprecated: false
+  tag: 10
+tls.server.x509.subject:
+  key: tls.server.x509.subject
+  name: subject
+  scope: tls.server.x509
+  type: Subject
+  deprecated: false
+  tag: 11
+tls.server.x509.subject.common_name:
+  key: tls.server.x509.subject.common_name
+  name: common_name
+  scope: tls.server.x509.subject
+  type: repeated string
+  deprecated: false
+  tag: 1
+tls.server.x509.subject.country:
+  key: tls.server.x509.subject.country
+  name: country
+  scope: tls.server.x509.subject
+  type: repeated string
+  deprecated: false
+  tag: 2
+tls.server.x509.subject.distinguished_name:
+  key: tls.server.x509.subject.distinguished_name
+  name: distinguished_name
+  scope: tls.server.x509.subject
+  type: string
+  deprecated: false
+  tag: 3
+tls.server.x509.subject.locality:
+  key: tls.server.x509.subject.locality
+  name: locality
+  scope: tls.server.x509.subject
+  type: repeated string
+  deprecated: false
+  tag: 4
+tls.server.x509.subject.organization:
+  key: tls.server.x509.subject.organization
+  name: organization
+  scope: tls.server.x509.subject
+  type: repeated string
+  deprecated: false
+  tag: 5
+tls.server.x509.subject.organizational_unit:
+  key: tls.server.x509.subject.organizational_unit
+  name: organizational_unit
+  scope: tls.server.x509.subject
+  type: repeated string
+  deprecated: false
+  tag: 6
+tls.server.x509.subject.state_or_province:
+  key: tls.server.x509.subject.state_or_province
+  name: state_or_province
+  scope: tls.server.x509.subject
+  type: repeated string
+  deprecated: false
+  tag: 7
+tls.server.x509.version_number:
+  key: tls.server.x509.version_number
+  name: version_number
+  scope: tls.server.x509
+  type: string
+  deprecated: false
+  tag: 12
 tls.version:
   key: tls.version
   name: version
