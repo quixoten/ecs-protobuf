@@ -120,9 +120,41 @@ class ProtobufDefinitionBuilder
       ecs_flat["timestamp"] = timestamp
     end
 
-    # build a hash of fields with protobuf types
-    built_fields = ecs_flat.keys.inject({}) do |built_fields, key|
-      field     = ecs_flat.fetch(key)
+    cascading_fields = {}
+    flat_fields      = {}
+
+    # create all of the containers (protobuf messages) for our fields
+    ecs_flat.each do |key, field|
+      fields_pointer = cascading_fields
+      segments       = key.split(".")
+
+      1.upto(segments.size - 1) do |level|
+        parent_key       = segments[0, level].join(".")
+        parent_name      = segments[level - 1]
+        parent_scope     = segments[0, level - 1].join(".")
+        parent_type      = camelize(parent_name)
+        parent_normalize = ecs_flat.dig(parent_key, "normalize") || []
+
+        unless VALID_NORMALIZE_SETTINGS.include?(parent_normalize)
+          abort("Don't know how to handle #{name}'s normalize setting: #{parent_normalize.inspect}")
+        end
+
+        parent_type = "repeated #{parent_type}" if parent_normalize == ["array"]
+
+        flat_fields[parent_key] = fields_pointer[parent_key] ||= {
+          "key"        => parent_key,
+          "name"       => parent_name,
+          "scope"      => parent_scope,
+          "type"       => parent_type,
+          "deprecated" => false,
+          "fields"     => {},
+        }
+        fields_pointer = fields_pointer[parent_key]["fields"]
+      end; nil
+    end
+
+    # add each field to its container (protobuf message)
+    ecs_flat.each do |key, field|
       segments  = key.split(".")
       name      = segments.pop()
       scope     = segments.join(".")
@@ -133,48 +165,20 @@ class ProtobufDefinitionBuilder
         abort("Don't know how to handle #{name}'s normalize setting: #{normalize}")
       end
 
-      while segments.any? do
-        parent_key       = segments.join(".")
-        parent_name      = segments.pop()
-        parent_scope     = segments.join(".")
-        parent_normalize = ecs_flat.dig(parent_key, "normalize") || []
-        parent_type      = camelize(parent_name)
+      next if flat_fields.key?(key)
 
-        unless VALID_NORMALIZE_SETTINGS.include?(parent_normalize)
-          abort("Don't know how to handle #{name}'s normalize setting: #{parent_normalize.inspect}")
-        end
+      fields = flat_fields.dig(scope, "fields") || cascading_fields
 
-        parent_type = "repeated #{parent_type}" if parent_normalize == ["array"]
-
-        built_fields[parent_key] = {
-          "key"        => parent_key,
-          "name"       => parent_name,
-          "scope"      => parent_scope,
-          "type"       => parent_type,
-          "deprecated" => false,
-        }
-      end
-
-      type = "repeated #{type}" if normalize == ["array"]
-
-      built_fields[key] ||= {
+      flat_fields[key] = fields[key] = {
         "key"        => key,
         "name"       => name,
         "scope"      => scope,
         "type"       => type,
         "deprecated" => false,
       }
-
-      built_fields
     end
 
-    built_fields.each do |_, field|
-      if field["type"].start_with?("repeated map")
-        abort "repeated map is not a valid protobuf type for #{key}"
-      end
-    end
-
-    sort_fields(built_fields)
+    cascading_fields
   end
 
   def load_cached_fields
@@ -196,20 +200,19 @@ class ProtobufDefinitionBuilder
   end
 
   def merge_new_fields_with_old_fields(new_fields, old_fields)
-    new_by_scope  = {}
-    old_by_scope  = {}
+    group_by_scope = lambda do |fields, group|
+      fields.each_value do |field|
+        scope = field["scope"]
+        group[scope] ||= {}
+        group[scope][field["key"]] = field
+        group_by_scope.call(field["fields"], group)
+      end
 
-    new_fields.each_value do |field|
-      scope = field["scope"]
-      new_by_scope[scope] ||= {}
-      new_by_scope[scope][field["key"]] = field
+      group
     end
 
-    old_fields.each_value do |field|
-      scope = field["scope"]
-      old_by_scope[scope] ||= {}
-      old_by_scope[scope][field["key"]] = field
-    end
+    new_by_scope  = group_by_scope.call(new_fields, {})
+    old_by_scope  = group_by_scope.call(old_fields, {})
 
     scopes = Set.new(new_by_scope.keys + old_by_scope.keys).sort
 
