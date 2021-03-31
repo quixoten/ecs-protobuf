@@ -28,13 +28,16 @@ message CommonSchema {
 
     message Geo {
       string city_name = 1;
-      string continent_name = 2;
-      string country_iso_code = 3;
-      string country_name = 4;
-      string location = 5;
-      string name = 6;
-      string region_iso_code = 7;
-      string region_name = 8;
+      string continent_code = 2;
+      string continent_name = 3;
+      string country_iso_code = 4;
+      string country_name = 5;
+      string location = 6;
+      string name = 7;
+      string postal_code = 8;
+      string region_iso_code = 9;
+      string region_name = 10;
+      string timezone = 11;
     }
 
     message Nat {
@@ -56,6 +59,7 @@ message CommonSchema {
       string hash = 5;
       string id = 6;
       string name = 7;
+      repeated string roles = 8;
     }
 
     string address = 1;
@@ -69,8 +73,9 @@ message CommonSchema {
     int64 packets = 9;
     int64 port = 10;
     string registered_domain = 11;
-    string top_level_domain = 12;
-    User user = 13;
+    string subdomain = 12;
+    string top_level_domain = 13;
+    User user = 14;
   }
 
   message Cloud {
@@ -93,6 +98,10 @@ message CommonSchema {
       string name = 2;
     }
 
+    message Service {
+      string name = 1;
+    }
+
     Account account = 1;
     string availability_zone = 2;
     Instance instance = 3;
@@ -100,6 +109,7 @@ message CommonSchema {
     Project project = 5;
     string provider = 6;
     string region = 7;
+    Service service = 8;
   }
 
   message Container {
@@ -127,13 +137,16 @@ message CommonSchema {
 
     message Geo {
       string city_name = 1;
-      string continent_name = 2;
-      string country_iso_code = 3;
-      string country_name = 4;
-      string location = 5;
-      string name = 6;
-      string region_iso_code = 7;
-      string region_name = 8;
+      string continent_code = 2;
+      string continent_name = 3;
+      string country_iso_code = 4;
+      string country_name = 5;
+      string location = 6;
+      string name = 7;
+      string postal_code = 8;
+      string region_iso_code = 9;
+      string region_name = 10;
+      string timezone = 11;
     }
 
     message Nat {
@@ -155,6 +168,7 @@ message CommonSchema {
       string hash = 5;
       string id = 6;
       string name = 7;
+      repeated string roles = 8;
     }
 
     string address = 1;
@@ -168,17 +182,20 @@ message CommonSchema {
     int64 packets = 9;
     int64 port = 10;
     string registered_domain = 11;
-    string top_level_domain = 12;
-    User user = 13;
+    string subdomain = 12;
+    string top_level_domain = 13;
+    User user = 14;
   }
 
   message Dll {
     message CodeSignature {
       bool exists = 1;
-      string status = 2;
-      string subject_name = 3;
-      bool trusted = 4;
-      bool valid = 5;
+      string signing_id = 2;
+      string status = 3;
+      string subject_name = 4;
+      string team_id = 5;
+      bool trusted = 6;
+      bool valid = 7;
     }
 
     message Hash {
@@ -186,6 +203,7 @@ message CommonSchema {
       string sha1 = 2;
       string sha256 = 3;
       string sha512 = 4;
+      string ssdeep = 5;
     }
 
     message Pe {
@@ -261,24 +279,27 @@ message CommonSchema {
     string original = 13;
     string outcome = 14;
     string provider = 15;
-    string reference = 16;
-    float risk_score = 17;
-    float risk_score_norm = 18;
-    int64 sequence = 19;
-    int64 severity = 20;
-    string start = 21;
-    string timezone = 22;
-    repeated string type = 23;
-    string url = 24;
+    string reason = 16;
+    string reference = 17;
+    float risk_score = 18;
+    float risk_score_norm = 19;
+    int64 sequence = 20;
+    int64 severity = 21;
+    string start = 22;
+    string timezone = 23;
+    repeated string type = 24;
+    string url = 25;
   }
 
   message File {
     message CodeSignature {
       bool exists = 1;
-      string status = 2;
-      string subject_name = 3;
-      bool trusted = 4;
-      bool valid = 5;
+      string signing_id = 2;
+      string status = 3;
+      string subject_name = 4;
+      string team_id = 5;
+      bool trusted = 6;
+      bool valid = 7;
     }
 
     message Hash {
@@ -286,6 +307,7 @@ message CommonSchema {
       string sha1 = 2;
       string sha256 = 3;
       string sha512 = 4;
+      string ssdeep = 5;
     }
 
     message Pe {
@@ -367,15 +389,50 @@ message CommonSchema {
   }
 
   message Host {
+    message Cpu {
+      double usage = 1;
+    }
+
+    message Disk {
+      message Read {
+        int64 bytes = 1;
+      }
+
+      message Write {
+        int64 bytes = 1;
+      }
+
+      Read read = 1;
+      Write write = 2;
+    }
+
     message Geo {
       string city_name = 1;
-      string continent_name = 2;
-      string country_iso_code = 3;
-      string country_name = 4;
-      string location = 5;
-      string name = 6;
-      string region_iso_code = 7;
-      string region_name = 8;
+      string continent_code = 2;
+      string continent_name = 3;
+      string country_iso_code = 4;
+      string country_name = 5;
+      string location = 6;
+      string name = 7;
+      string postal_code = 8;
+      string region_iso_code = 9;
+      string region_name = 10;
+      string timezone = 11;
+    }
+
+    message Network {
+      message Egress {
+        int64 bytes = 1;
+        int64 packets = 2;
+      }
+
+      message Ingress {
+        int64 bytes = 1;
+        int64 packets = 2;
+      }
+
+      Egress egress = 1;
+      Ingress ingress = 2;
     }
 
     message Os {
@@ -384,7 +441,8 @@ message CommonSchema {
       string kernel = 3;
       string name = 4;
       string platform = 5;
-      string version = 6;
+      string type = 6;
+      string version = 7;
     }
 
     message User {
@@ -401,20 +459,24 @@ message CommonSchema {
       string hash = 5;
       string id = 6;
       string name = 7;
+      repeated string roles = 8;
     }
 
     string architecture = 1;
-    string domain = 2;
-    Geo geo = 3;
-    string hostname = 4;
-    string id = 5;
-    repeated string ip = 6;
-    repeated string mac = 7;
-    string name = 8;
-    Os os = 9;
-    string type = 10;
-    int64 uptime = 11;
-    User user = 12;
+    Cpu cpu = 2;
+    Disk disk = 3;
+    string domain = 4;
+    Geo geo = 5;
+    string hostname = 6;
+    string id = 7;
+    repeated string ip = 8;
+    repeated string mac = 9;
+    string name = 10;
+    Network network = 11;
+    Os os = 12;
+    string type = 13;
+    int64 uptime = 14;
+    User user = 15;
   }
 
   message Http {
@@ -426,8 +488,10 @@ message CommonSchema {
 
       Body body = 1;
       int64 bytes = 2;
-      string method = 3;
-      string referrer = 4;
+      string id = 3;
+      string method = 4;
+      string mime_type = 5;
+      string referrer = 6;
     }
 
     message Response {
@@ -438,7 +502,8 @@ message CommonSchema {
 
       Body body = 1;
       int64 bytes = 2;
-      int64 status_code = 3;
+      string mime_type = 3;
+      int64 status_code = 4;
     }
 
     Request request = 1;
@@ -535,13 +600,16 @@ message CommonSchema {
 
     message Geo {
       string city_name = 1;
-      string continent_name = 2;
-      string country_iso_code = 3;
-      string country_name = 4;
-      string location = 5;
-      string name = 6;
-      string region_iso_code = 7;
-      string region_name = 8;
+      string continent_code = 2;
+      string continent_name = 3;
+      string country_iso_code = 4;
+      string country_name = 5;
+      string location = 6;
+      string name = 7;
+      string postal_code = 8;
+      string region_iso_code = 9;
+      string region_name = 10;
+      string timezone = 11;
     }
 
     message Ingress {
@@ -567,7 +635,8 @@ message CommonSchema {
       string kernel = 3;
       string name = 4;
       string platform = 5;
-      string version = 6;
+      string type = 6;
+      string version = 7;
     }
 
     Egress egress = 1;
@@ -609,10 +678,12 @@ message CommonSchema {
   message Process {
     message CodeSignature {
       bool exists = 1;
-      string status = 2;
-      string subject_name = 3;
-      bool trusted = 4;
-      bool valid = 5;
+      string signing_id = 2;
+      string status = 3;
+      string subject_name = 4;
+      string team_id = 5;
+      bool trusted = 6;
+      bool valid = 7;
     }
 
     message Hash {
@@ -620,15 +691,18 @@ message CommonSchema {
       string sha1 = 2;
       string sha256 = 3;
       string sha512 = 4;
+      string ssdeep = 5;
     }
 
     message Parent {
       message CodeSignature {
         bool exists = 1;
-        string status = 2;
-        string subject_name = 3;
-        bool trusted = 4;
-        bool valid = 5;
+        string signing_id = 2;
+        string status = 3;
+        string subject_name = 4;
+        string team_id = 5;
+        bool trusted = 6;
+        bool valid = 7;
       }
 
       message Hash {
@@ -636,6 +710,17 @@ message CommonSchema {
         string sha1 = 2;
         string sha256 = 3;
         string sha512 = 4;
+        string ssdeep = 5;
+      }
+
+      message Pe {
+        string architecture = 1;
+        string company = 2;
+        string description = 3;
+        string file_version = 4;
+        string imphash = 5;
+        string original_file_name = 6;
+        string product = 7;
       }
 
       message Thread {
@@ -652,14 +737,15 @@ message CommonSchema {
       int64 exit_code = 7;
       Hash hash = 8;
       string name = 9;
-      int64 pgid = 10;
-      int64 pid = 11;
-      int64 ppid = 12;
-      string start = 13;
-      Thread thread = 14;
-      string title = 15;
-      int64 uptime = 16;
-      string working_directory = 17;
+      Pe pe = 10;
+      int64 pgid = 11;
+      int64 pid = 12;
+      int64 ppid = 13;
+      string start = 14;
+      Thread thread = 15;
+      string title = 16;
+      int64 uptime = 17;
+      string working_directory = 18;
     }
 
     message Pe {
@@ -714,8 +800,9 @@ message CommonSchema {
 
   message Related {
     repeated string hash = 1;
-    repeated string ip = 2;
-    repeated string user = 3;
+    repeated string hosts = 2;
+    repeated string ip = 3;
+    repeated string user = 4;
   }
 
   message Rule {
@@ -743,13 +830,16 @@ message CommonSchema {
 
     message Geo {
       string city_name = 1;
-      string continent_name = 2;
-      string country_iso_code = 3;
-      string country_name = 4;
-      string location = 5;
-      string name = 6;
-      string region_iso_code = 7;
-      string region_name = 8;
+      string continent_code = 2;
+      string continent_name = 3;
+      string country_iso_code = 4;
+      string country_name = 5;
+      string location = 6;
+      string name = 7;
+      string postal_code = 8;
+      string region_iso_code = 9;
+      string region_name = 10;
+      string timezone = 11;
     }
 
     message Nat {
@@ -771,6 +861,7 @@ message CommonSchema {
       string hash = 5;
       string id = 6;
       string name = 7;
+      repeated string roles = 8;
     }
 
     string address = 1;
@@ -784,8 +875,9 @@ message CommonSchema {
     int64 packets = 9;
     int64 port = 10;
     string registered_domain = 11;
-    string top_level_domain = 12;
-    User user = 13;
+    string subdomain = 12;
+    string top_level_domain = 13;
+    User user = 14;
   }
 
   message Service {
@@ -814,13 +906,16 @@ message CommonSchema {
 
     message Geo {
       string city_name = 1;
-      string continent_name = 2;
-      string country_iso_code = 3;
-      string country_name = 4;
-      string location = 5;
-      string name = 6;
-      string region_iso_code = 7;
-      string region_name = 8;
+      string continent_code = 2;
+      string continent_name = 3;
+      string country_iso_code = 4;
+      string country_name = 5;
+      string location = 6;
+      string name = 7;
+      string postal_code = 8;
+      string region_iso_code = 9;
+      string region_name = 10;
+      string timezone = 11;
     }
 
     message Nat {
@@ -842,6 +937,7 @@ message CommonSchema {
       string hash = 5;
       string id = 6;
       string name = 7;
+      repeated string roles = 8;
     }
 
     string address = 1;
@@ -855,8 +951,13 @@ message CommonSchema {
     int64 packets = 9;
     int64 port = 10;
     string registered_domain = 11;
-    string top_level_domain = 12;
-    User user = 13;
+    string subdomain = 12;
+    string top_level_domain = 13;
+    User user = 14;
+  }
+
+  message Span {
+    string id = 1;
   }
 
   message Threat {
@@ -867,9 +968,16 @@ message CommonSchema {
     }
 
     message Technique {
+      message Subtechnique {
+        repeated string id = 1;
+        repeated string name = 2;
+        repeated string reference = 3;
+      }
+
       repeated string id = 1;
       repeated string name = 2;
       repeated string reference = 3;
+      Subtechnique subtechnique = 4;
     }
 
     string framework = 1;
@@ -1017,24 +1125,80 @@ message CommonSchema {
     string query = 9;
     string registered_domain = 10;
     string scheme = 11;
-    string top_level_domain = 12;
-    string username = 13;
+    string subdomain = 12;
+    string top_level_domain = 13;
+    string username = 14;
   }
 
   message User {
+    message Changes {
+      message Group {
+        string domain = 1;
+        string id = 2;
+        string name = 3;
+      }
+
+      string domain = 1;
+      string email = 2;
+      string full_name = 3;
+      Group group = 4;
+      string hash = 5;
+      string id = 6;
+      string name = 7;
+      repeated string roles = 8;
+    }
+
+    message Effective {
+      message Group {
+        string domain = 1;
+        string id = 2;
+        string name = 3;
+      }
+
+      string domain = 1;
+      string email = 2;
+      string full_name = 3;
+      Group group = 4;
+      string hash = 5;
+      string id = 6;
+      string name = 7;
+      repeated string roles = 8;
+    }
+
     message Group {
       string domain = 1;
       string id = 2;
       string name = 3;
     }
 
-    string domain = 1;
-    string email = 2;
-    string full_name = 3;
-    Group group = 4;
-    string hash = 5;
-    string id = 6;
-    string name = 7;
+    message Target {
+      message Group {
+        string domain = 1;
+        string id = 2;
+        string name = 3;
+      }
+
+      string domain = 1;
+      string email = 2;
+      string full_name = 3;
+      Group group = 4;
+      string hash = 5;
+      string id = 6;
+      string name = 7;
+      repeated string roles = 8;
+    }
+
+    Changes changes = 1;
+    string domain = 2;
+    Effective effective = 3;
+    string email = 4;
+    string full_name = 5;
+    Group group = 6;
+    string hash = 7;
+    string id = 8;
+    string name = 9;
+    repeated string roles = 10;
+    Target target = 11;
   }
 
   message UserAgent {
@@ -1048,7 +1212,8 @@ message CommonSchema {
       string kernel = 3;
       string name = 4;
       string platform = 5;
-      string version = 6;
+      string type = 6;
+      string version = 7;
     }
 
     Device device = 1;
@@ -1110,15 +1275,16 @@ message CommonSchema {
   Server server = 26;
   Service service = 27;
   Source source = 28;
-  repeated string tags = 29;
-  Threat threat = 30;
-  string timestamp = 31;
-  Tls tls = 32;
-  Trace trace = 33;
-  Transaction transaction = 34;
-  Url url = 35;
-  User user = 36;
-  UserAgent user_agent = 37;
-  Vulnerability vulnerability = 38;
+  Span span = 29;
+  repeated string tags = 30;
+  Threat threat = 31;
+  string timestamp = 32;
+  Tls tls = 33;
+  Trace trace = 34;
+  Transaction transaction = 35;
+  Url url = 36;
+  User user = 37;
+  UserAgent user_agent = 38;
+  Vulnerability vulnerability = 39;
 }
 
